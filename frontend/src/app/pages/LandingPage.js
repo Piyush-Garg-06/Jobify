@@ -10,9 +10,9 @@ import logoImg from "@/imports/Screenshot_2026-07-26_115124.png";
 
 // ─── Google Form URLs ──────────────────────────────────────────────────────────
 const FORM_URLS = {
-  "1 Month": "https://docs.google.com/forms/d/YOUR_1_MONTH_FORM_ID/viewform",
+  "1 Month": "https://docs.google.com/forms/d/1jizL4c51FheWC1TT8b77tWKRtHAsbXDzMnVTEDDfY5g/viewform",
   "45 Days": "https://docs.google.com/forms/d/1ouVs6_sMtjM_OTcgXrhhlbri0b4yybtjx3Ckf9YiwuA/viewform",
-  "2 Months": "https://docs.google.com/forms/d/YOUR_2_MONTHS_FORM_ID/viewform",
+  "2 Months": "https://docs.google.com/forms/d/13XjpT745sktkAQZLLFTXvQSK3mUm3gw5ZdLnCbodoCA/viewform",
 };
 
 // ─── Palette ──────────────────────────────────────────────────────────────────
