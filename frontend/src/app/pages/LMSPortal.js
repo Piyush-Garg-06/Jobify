@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router";
 import {
   BookOpen, Award, Upload, Clock, CheckCircle, ArrowRight,
   LogOut, User, ShieldAlert, FileText, X, ExternalLink, Download,
-  Lock, Check, Loader2, Sparkles, FolderUp, RefreshCw
+  Lock, Check, Loader2, Sparkles, FolderUp, RefreshCw, Menu
 } from "lucide-react";
 import confetti from "canvas-confetti";
 import logoImg from "@/imports/Screenshot_2026-07-26_115124.png";
@@ -112,6 +112,9 @@ const CURRICULA = {
 
 export default function LMSPortal() {
   const navigate = useNavigate();
+  // Sidebar State for Mobile
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   // Authentication State
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -452,7 +455,7 @@ export default function LMSPortal() {
           {/* Logo in a clean, elevated white container to prevent merging with dark background */}
           <div className="flex justify-center">
             <div className="bg-white/95 px-5 py-2.5 rounded-2xl shadow-xl border border-white/20 flex items-center justify-center">
-              <img src={logoImg} alt="Jobify" className="h-24 w-auto object-contain" />
+              <img src={logoImg} alt="Jobify" className="h-16 sm:h-20 w-auto object-contain" />
             </div>
           </div>
 
@@ -532,14 +535,25 @@ export default function LMSPortal() {
   return (
     <div className="min-h-screen flex flex-col md:flex-row bg-slate-50 text-slate-700" style={{ fontFamily: "Inter, sans-serif" }}>
 
+      {/* Backdrop overlay for mobile sidebar */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black/40 backdrop-blur-xs md:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
       {/* ─── SIDEBAR (PREMIUM LIGHT THEME WITH LOGO ON WHITE BACKGROUND) ─── */}
-      <aside className="w-full md:w-64 min-h-screen md:h-screen md:sticky md:top-0 bg-white border-r border-slate-200 flex flex-col shrink-0">
+      <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-slate-200 flex flex-col shrink-0 transform transition-transform duration-300 ease-in-out md:translate-x-0 md:static md:h-screen md:sticky md:top-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}>
 
         {/* Brand Logo Header — Large, clear and naturally integrated on the white sidebar */}
-        <div className="px-4 py-4 border-b border-slate-100 flex items-center justify-center bg-white">
+        <div className="px-4 py-4 border-b border-slate-100 flex items-center justify-between bg-white">
           <Link to="/" className="flex items-center w-full justify-center">
-            <img src={logoImg} alt="Jobify" className="h-28 w-auto max-w-full object-contain" />
+            <img src={logoImg} alt="Jobify" className="h-16 w-auto max-w-full object-contain" />
           </Link>
+          <button onClick={() => setSidebarOpen(false)} className="p-2 text-slate-400 hover:text-slate-600 md:hidden" aria-label="Close menu">
+            <X size={20} />
+          </button>
         </div>
 
         {/* Profile Card */}
@@ -566,7 +580,7 @@ export default function LMSPortal() {
             return (
               <button
                 key={item.id}
-                onClick={() => setActiveTab(item.id)}
+                onClick={() => { setActiveTab(item.id); setSidebarOpen(false); }}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left ${active ? "text-white" : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"}`}
                 style={active ? { background: G.blue, boxShadow: "0 4px 12px rgba(0,112,243,0.15)" } : {}}
               >
@@ -591,6 +605,25 @@ export default function LMSPortal() {
           </button>
         </div>
       </aside>
+
+      {/* ─── MOBILE TOP BAR (SHOWN ONLY ON MOBILE SCREEN) ─── */}
+      <header className="h-16 px-4 bg-white border-b border-slate-200 flex md:hidden items-center justify-between sticky top-0 z-30 shrink-0">
+        <button
+          onClick={() => setSidebarOpen(true)}
+          className="p-2 text-slate-600 hover:text-slate-900"
+          aria-label="Open Sidebar"
+        >
+          <Menu size={24} />
+        </button>
+
+        <Link to="/" className="flex items-center h-10">
+          <img src={logoImg} alt="Jobify" className="h-10 w-auto object-contain" />
+        </Link>
+
+        <div className="w-9 h-9 rounded-xl flex items-center justify-center font-bold text-white text-xs shrink-0" style={{ background: G.blue }}>
+          {studentName ? studentName.split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2) : "US"}
+        </div>
+      </header>
 
       {/* ─── MAIN CONTENT ─── */}
       <main className="flex-1 flex flex-col overflow-y-auto">

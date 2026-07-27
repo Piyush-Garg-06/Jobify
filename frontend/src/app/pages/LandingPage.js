@@ -174,7 +174,7 @@ function Navbar({ onApplyClick }) {
           <img
             src={logoImg}
             alt="Jobify — Unlock Your Potential"
-            className="h-24 w-auto object-contain"
+            className="h-12 sm:h-14 w-auto object-contain"
           />
         </a>
 
@@ -374,7 +374,7 @@ function TrustBar() {
 
 function Domains() {
   return (
-    <section id="programs" className="py-24 px-4 sm:px-6" style={{ background: C.surface }}>
+    <section id="programs" className="py-24 px-4 sm:px-6 scroll-mt-[70px]" style={{ background: C.surface }}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
           <SectionLabel>Our Programs</SectionLabel>
@@ -416,7 +416,7 @@ function Domains() {
 
 function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 px-4 sm:px-6 relative overflow-hidden" style={{ background: G.navy }}>
+    <section id="how-it-works" className="py-24 px-4 sm:px-6 relative overflow-hidden scroll-mt-[70px]" style={{ background: G.navy }}>
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "radial-gradient(circle,#fff 1px,transparent 1px)", backgroundSize: "32px 32px" }} />
       <div className="absolute top-0 left-0 right-0 h-px" style={{ background: G.goldLine }} />
       <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: G.goldLine }} />
@@ -463,7 +463,7 @@ function HowItWorks() {
 
 function Pricing({ onApplyClick }) {
   return (
-    <section id="pricing" className="py-24 px-4 sm:px-6" style={{ background: C.surface }}>
+    <section id="pricing" className="py-24 px-4 sm:px-6 scroll-mt-[70px]" style={{ background: C.surface }}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
           <SectionLabel>Affordable Plans</SectionLabel>
@@ -646,7 +646,7 @@ function CertVerify() {
   function handleReset() { setState("idle"); setInput(""); setResult(null); }
 
   return (
-    <section id="verify" className="py-24 px-4 sm:px-6" style={{ background: C.surface }}>
+    <section id="verify" className="py-24 px-4 sm:px-6 scroll-mt-[70px]" style={{ background: C.surface }}>
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
           <SectionLabel>Certificate Verification</SectionLabel>
@@ -872,7 +872,7 @@ function Testimonials() {
 function FAQ() {
   const [open, setOpen] = useState(null);
   return (
-    <section id="faq" className="py-24 px-4 sm:px-6" style={{ background: C.surface }}>
+    <section id="faq" className="py-24 px-4 sm:px-6 scroll-mt-[70px]" style={{ background: C.surface }}>
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-14">
           <SectionLabel>Got Questions?</SectionLabel>
