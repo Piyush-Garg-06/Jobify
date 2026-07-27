@@ -432,13 +432,18 @@ export default function LMSPortal() {
     return true;
   };
 
-  const getProgressPercentage = () => {
+  const getApprovedTasksCount = () => {
     let approvedCount = 0;
     for (let w = 1; w <= maxWeeks; w++) {
       if (submissions[w] && submissions[w].status === "Approved") {
         approvedCount++;
       }
     }
+    return approvedCount;
+  };
+
+  const getProgressPercentage = () => {
+    const approvedCount = getApprovedTasksCount();
     return Math.round((approvedCount / maxWeeks) * 100);
   };
 
@@ -480,7 +485,7 @@ export default function LMSPortal() {
                 <label className="text-xs font-bold uppercase tracking-wider text-slate-300">Username / Login ID</label>
                 <input
                   type="text"
-                  placeholder="Enter 'testuser'"
+                  placeholder="Enter your username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   required
@@ -493,7 +498,7 @@ export default function LMSPortal() {
                 <label className="text-xs font-bold uppercase tracking-wider text-slate-300">Password</label>
                 <input
                   type="password"
-                  placeholder="Enter 'password123'"
+                  placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
@@ -511,14 +516,6 @@ export default function LMSPortal() {
                 {isLoading ? <Loader2 size={16} className="animate-spin" /> : <>Login <ArrowRight size={16} /></>}
               </button>
             </form>
-
-            <div className="mt-6 border-t border-white/10 pt-4 flex flex-col items-center gap-2 text-center text-xs text-slate-400">
-              <p>🔑 Demo credentials for verification:</p>
-              <div className="px-3 py-1.5 rounded-lg border border-white/5 bg-white/5 font-mono text-[11px] text-orange-300">
-                username: <strong className="text-white">testuser</strong> <br />
-                password: <strong className="text-white">password123</strong>
-              </div>
-            </div>
           </div>
 
           <div className="text-center mt-2">
@@ -738,7 +735,7 @@ export default function LMSPortal() {
                   </div>
                   <div>
                     <span className="text-[10px] uppercase font-extrabold text-slate-400 tracking-wider">Approved Tasks</span>
-                    <div className="font-extrabold text-lg text-slate-800 mt-0.5">2 Completed</div>
+                    <div className="font-extrabold text-lg text-slate-800 mt-0.5">{getApprovedTasksCount()} Completed</div>
                   </div>
                 </div>
               </div>
