@@ -627,7 +627,7 @@ function CertVerify() {
     if (!input.trim()) return;
     setState("loading");
     try {
-      const res = await fetch(`http://localhost:5000/api/certificates/verify/${input.trim()}`);
+      const res = await fetch(`https://jobify-eta-one.vercel.app/api/certificates/verify/${input.trim()}`);
       const data = await res.json();
       if (data.success) {
         setResult(data.certificate);
@@ -734,7 +734,7 @@ function CertVerify() {
                   onChange={async () => {
                     setState("loading");
                     try {
-                      const res = await fetch(`http://localhost:5000/api/certificates/verify/JBF-2025-042`);
+                      const res = await fetch(`https://jobify-eta-one.vercel.app/api/certificates/verify/JBF-2025-042`);
                       const data = await res.json();
                       if (data.success) {
                         setResult(data.certificate);

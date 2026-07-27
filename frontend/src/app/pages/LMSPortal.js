@@ -201,7 +201,7 @@ export default function LMSPortal() {
 
     try {
       // 1. Fetch Profile
-      const profileRes = await fetch("http://localhost:5000/api/auth/me", {
+      const profileRes = await fetch("https://jobify-eta-one.vercel.app/api/auth/me", {
         headers: { "Authorization": `Bearer ${token}` }
       });
       const profileData = await profileRes.json();
@@ -216,7 +216,7 @@ export default function LMSPortal() {
       }
 
       // 2. Fetch Submissions
-      const subRes = await fetch("http://localhost:5000/api/submissions", {
+      const subRes = await fetch("https://jobify-eta-one.vercel.app/api/submissions", {
         headers: { "Authorization": `Bearer ${token}` }
       });
       const subData = await subRes.json();
@@ -274,7 +274,7 @@ export default function LMSPortal() {
     setIsLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch("https://jobify-eta-one.vercel.app/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password })
@@ -323,7 +323,7 @@ export default function LMSPortal() {
 
     const token = localStorage.getItem("jobify_token");
     try {
-      const res = await fetch("http://localhost:5000/api/submissions", {
+      const res = await fetch("https://jobify-eta-one.vercel.app/api/submissions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -353,7 +353,7 @@ export default function LMSPortal() {
   const handleResetSubmission = async (weekNum) => {
     const token = localStorage.getItem("jobify_token");
     try {
-      const res = await fetch("http://localhost:5000/api/submissions/reset", {
+      const res = await fetch("https://jobify-eta-one.vercel.app/api/submissions/reset", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -376,7 +376,7 @@ export default function LMSPortal() {
   const triggerCertificateGen = async () => {
     const token = localStorage.getItem("jobify_token");
     try {
-      const res = await fetch("http://localhost:5000/api/certificates/generate", {
+      const res = await fetch("https://jobify-eta-one.vercel.app/api/certificates/generate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

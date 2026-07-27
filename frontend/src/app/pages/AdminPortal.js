@@ -67,7 +67,7 @@ export default function AdminPortal() {
   const fetchApplications = async (token) => {
     setIsLoadingApps(true);
     try {
-      const res = await fetch("http://localhost:5000/api/applications/admin/list", {
+      const res = await fetch("https://jobify-eta-one.vercel.app/api/applications/admin/list", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -87,7 +87,7 @@ export default function AdminPortal() {
   const fetchSubmissions = async (token) => {
     setIsLoadingSubmissions(true);
     try {
-      const res = await fetch("http://localhost:5000/api/submissions/admin/list", {
+      const res = await fetch("https://jobify-eta-one.vercel.app/api/submissions/admin/list", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -110,7 +110,7 @@ export default function AdminPortal() {
 
     setProcessingId(subId);
     try {
-      const res = await fetch(`http://localhost:5000/api/submissions/admin/${subId}/grade`, {
+      const res = await fetch(`https://jobify-eta-one.vercel.app/api/submissions/admin/${subId}/grade`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -140,7 +140,7 @@ export default function AdminPortal() {
     setIsLoggingIn(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch("https://jobify-eta-one.vercel.app/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: adminUsername, password: adminPassword }),
@@ -184,7 +184,7 @@ export default function AdminPortal() {
 
     setProcessingId(appId);
     try {
-      const res = await fetch(`http://localhost:5000/api/applications/admin/${appId}/verify`, {
+      const res = await fetch(`https://jobify-eta-one.vercel.app/api/applications/admin/${appId}/verify`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

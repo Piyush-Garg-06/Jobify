@@ -185,7 +185,7 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
 export const sendApprovalEmail = async (email, name, username, password, pdfBuffer) => {
   try {
     const transporter = await getTransporter();
-    const portalUrl = "http://localhost:5173/#/lms";
+    const portalUrl = "https://jobify-internships.netlify.app/#/lms";
 
     const mailOptions = {
       from: process.env.SMTP_FROM || `"Jobify LMS Portal" <noreply@jobify.com>`,
