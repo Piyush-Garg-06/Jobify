@@ -2,6 +2,10 @@ import nodemailer from "nodemailer";
 import PDFDocument from "pdfkit";
 import path from "path";
 import fs from "fs";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Setup NodeMailer Transporter
 const getTransporter = async () => {
@@ -76,7 +80,7 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
     doc.on("end", () => resolve(Buffer.concat(chunks)));
     doc.on("error", (err) => reject(err));
 
-    const logoPath = path.resolve("src/assets/logo.png");
+    const logoPath = path.join(__dirname, "../assets/logo.png");
     const logoExists = fs.existsSync(logoPath);
 
     // 1. Watermark Background Logo (drawn first)
@@ -153,7 +157,7 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
     
     doc.font("Helvetica").fontSize(9.5).lineGap(4.5).fillColor("#333");
     
-    const bodyText1 = `We are pleased to offer you a virtual internship at iNeuBytes Technology & Services Private Limited in the domain of ${domain}.\n\nCongratulations! This internship is designed to provide you with practical exposure, hands-on learning, and project-based experience in your selected field. During the internship, you will work on assigned tasks, learning activities, documentation, and project submissions through the iNeuBytes portal.`;
+    const bodyText1 = `We are pleased to offer you a virtual internship at Jobify in the domain of ${domain}.\n\nCongratulations! This internship is designed to provide you with practical exposure, hands-on learning, and project-based experience in your selected field. During the internship, you will work on assigned tasks, learning activities, documentation, and project submissions through the Jobify portal.`;
     doc.text(bodyText1, 40, 220, { width: 515 });
 
     // Internship Details block
@@ -168,14 +172,14 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
     // Commitment and terms
     doc.font("Helvetica-Bold").text("Weekly Commitment: 5 hours per week", 40, 435);
     
-    const bodyText2 = `The internship will be conducted for ${durationLabel}, as selected during registration. To be eligible for the internship completion certificate, the intern must complete the assigned tasks, project work, and required submissions within the specified timeline. This internship is intended for learning and skill development purposes and does not create an employer-employee relationship with iNeuBytes Technology & Services Private Limited.\n\nWe welcome you to the iNeuBytes internship program and wish you a successful learning experience.`;
+    const bodyText2 = `The internship will be conducted for ${durationLabel}, as selected during registration. To be eligible for the internship completion certificate, the intern must complete the assigned tasks, project work, and required submissions within the specified timeline. This internship is intended for learning and skill development purposes and does not create an employer-employee relationship with Jobify.\n\nWe welcome you to the Jobify internship program and wish you a successful learning experience.`;
     doc.font("Helvetica").fontSize(9.5).lineGap(4.5).fillColor("#333").text(bodyText2, 40, 455, { width: 515 });
 
     // 7. Signature / Regards
     doc.font("Helvetica").fontSize(9.5).lineGap(3).text("Regards,", 40, 580);
     doc.font("Helvetica-Bold").text("Shruti Kumari", 40, 595);
     doc.font("Helvetica").text("Human Resource", 40, 610);
-    doc.font("Helvetica").fillColor("#666").text("iNeuBytes Technology & Services Private Limited.", 40, 625);
+    doc.font("Helvetica").fillColor("#666").text("Jobify Ltd.", 40, 625);
 
     doc.end();
   });
