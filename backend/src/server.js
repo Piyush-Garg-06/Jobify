@@ -34,6 +34,11 @@ app.use("/api/submissions", submissionRoutes);
 app.use("/api/certificates", certificateRoutes);
 app.use("/api/applications", applicationRoutes);
 
+// Root endpoint
+app.get("/", (req, res) => {
+  res.send("Welcome to Jobify LMS Backend API");
+});
+
 // Health check endpoint
 app.get("/health", (req, res) => {
   res.json({ status: "OK", timestamp: new Date() });
@@ -41,17 +46,18 @@ app.get("/health", (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
-const startServer = async () => {
-  // 1. Connect to Database
-  await connectDB();
+// Connect to Database immediately when module loads
+connectDB().then(() => {
+  seedDatabase();
+}).catch(err => {
+  console.error("Database connection error:", err);
+});
 
-  // 2. Seed Mock Database Values (if needed)
-  await seedDatabase();
-
-  // 3. Start Listening
+// Only listen to port if NOT running in Vercel serverless environment
+if (process.env.NODE_ENV !== "production" || !process.env.VERCEL) {
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
-};
+}
 
-startServer();
+export default app;
