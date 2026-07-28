@@ -43,10 +43,10 @@ const getDurationDetails = (durationStr) => {
   let label = "One and half month (45 days)";
   
   const d = (durationStr || "").toLowerCase();
-  if (d.includes("1 month") || d.includes("30 day") || d.includes("starter")) {
+  if (d.includes("1 month") || d.includes("30 day") || d.includes("starter") || d.includes("4 week")) {
     days = 30;
     label = "One month (30 days)";
-  } else if (d.includes("2 month") || d.includes("60 day") || d.includes("pro")) {
+  } else if (d.includes("2 month") || d.includes("60 day") || d.includes("pro") || d.includes("8 week")) {
     days = 60;
     label = "Two months (60 days)";
   } else if (d.includes("45 day") || d.includes("advanced") || d.includes("6 week") || d.includes("1.5 month")) {
@@ -82,6 +82,9 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
 
     const logoPath = path.join(__dirname, "../assets/logo.png");
     const logoExists = fs.existsSync(logoPath);
+    
+    const qrPath = path.join(__dirname, "../assets/qrcode.png");
+    const qrExists = fs.existsSync(qrPath);
 
     // 1. Watermark Background Logo (drawn first)
     if (logoExists) {
@@ -91,55 +94,58 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
       doc.restore();
     }
 
-    // 2. Footer background decorative waves (drawn in bottom-right corner)
+    // 2. Footer background decorative waves covering entire width
     doc.save();
-    // Dark Blue base wave
-    doc.fillColor("#0A2540");
-    doc.moveTo(320, 841)
-       .bezierCurveTo(400, 790, 480, 770, 595, 770)
+    // Gold Wave (drawn first, behind)
+    doc.fillColor("#FFB800")
+       .moveTo(0, 841)
+       .lineTo(0, 770)
+       .bezierCurveTo(150, 730, 350, 830, 595, 770)
        .lineTo(595, 841)
-       .lineTo(320, 841)
+       .closePath()
        .fill();
        
-    // Orange/Gold overlap wave
-    doc.fillColor("#FFB800");
-    doc.moveTo(220, 841)
-       .bezierCurveTo(340, 815, 470, 805, 595, 795)
-       .lineTo(595, 805)
-       .bezierCurveTo(470, 815, 340, 825, 220, 841)
+    // Navy Blue Wave (drawn on top, shifted down to create a gold stripe effect)
+    doc.fillColor("#0A2540")
+       .moveTo(0, 841)
+       .lineTo(0, 790)
+       .bezierCurveTo(150, 750, 350, 850, 595, 790)
+       .lineTo(595, 841)
+       .closePath()
        .fill();
     doc.restore();
 
     // 3. Header Section
     // Logo (Top Left)
     if (logoExists) {
-      doc.image(logoPath, 40, 35, { width: 110 });
+      doc.image(logoPath, 40, 20, { width: 100 });
+    }
+
+    // QR Code (Top Middle)
+    if (qrExists) {
+      doc.image(qrPath, 165, 20, { width: 70 });
     }
 
     // Contact info (Top Right)
-    doc.fontSize(8.5).font("Helvetica").fillColor("#4a6080");
+    doc.fontSize(8.5).font("Helvetica").fillColor("#0A2540");
     
-    // Address Pin
-    doc.fillColor("#E53E3E").circle(420, 47, 3.5).fill();
-    doc.fillColor("#4a6080").text("Jaipur, Rajasthan, India", 430, 44);
+    // Address Pin (Red)
+    doc.fillColor("#E53E3E").circle(370, 42, 3.5).fill();
+    doc.fillColor("#0A2540").text("Jaipur, Rajasthan, India", 380, 39);
     
-    // Phone
-    doc.fillColor("#38A169").circle(420, 60, 3.5).fill();
-    doc.fillColor("#4a6080").text("+91 93517 69851", 430, 57);
+    // Phone (Dark Grey)
+    doc.fillColor("#4A5568").circle(370, 55, 3.5).fill();
+    doc.fillColor("#0A2540").text("+91 79764 86392", 380, 52);
     
-    // Email
-    doc.fillColor("#3182CE").circle(420, 73, 3.5).fill();
-    doc.fillColor("#4a6080").text("contact@jobify.in", 430, 70);
-    
-    // Website
-    doc.fillColor("#319795").circle(420, 86, 3.5).fill();
-    doc.fillColor("#4a6080").text("www.jobify.in", 430, 83);
+    // Email (Blue)
+    doc.fillColor("#3182CE").circle(370, 68, 3.5).fill();
+    doc.fillColor("#0A2540").text("jobify.internship@gmail.com", 380, 65);
 
     // Blue horizontal divider line
-    doc.strokeColor("rgba(10,37,64,0.15)").lineWidth(1.5).moveTo(40, 115).lineTo(555, 115).stroke();
+    doc.strokeColor("#0A2540").lineWidth(2).moveTo(40, 115).lineTo(555, 115).stroke();
 
     // 4. Document Title
-    doc.fontSize(24).font("Helvetica-Bold").fillColor("#0A2540").text("Offer Letter", 40, 135, { align: "center" });
+    doc.fontSize(24).font("Times-Bold").fillColor("#0A2540").text("Offer Letter", 40, 135, { align: "center" });
 
     // Date (Top Right)
     const letterDate = new Date().toLocaleDateString("en-US", {
@@ -147,39 +153,37 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
       day: "numeric",
       year: "numeric",
     });
-    doc.fontSize(10.5).font("Helvetica").fillColor("#333").text(letterDate, 40, 175, { align: "right" });
+    doc.fontSize(10.5).font("Times-Roman").fillColor("#333").text(letterDate, 40, 160, { align: "right" });
 
     // 5. Greeting
-    doc.fontSize(10.5).font("Helvetica-Bold").fillColor("#333").text(`Dear ${name},`, 40, 195);
+    doc.fontSize(10.5).font("Times-Bold").fillColor("#333").text(`Dear ${name},`, 40, 190);
 
     // 6. Body text
     const { label: durationLabel, startDateStr, endDateStr } = getDurationDetails(duration);
     
-    doc.font("Helvetica").fontSize(9.5).lineGap(4.5).fillColor("#333");
+    doc.font("Times-Roman").fontSize(9.5).lineGap(4.5).fillColor("#333");
     
-    const bodyText1 = `We are pleased to offer you a virtual internship at Jobify in the domain of ${domain}.\n\nCongratulations! This internship is designed to provide you with practical exposure, hands-on learning, and project-based experience in your selected field. During the internship, you will work on assigned tasks, learning activities, documentation, and project submissions through the Jobify portal.`;
-    doc.text(bodyText1, 40, 220, { width: 515 });
+    const bodyText1 = `We are pleased to offer you a virtual internship at Jobify Technology & Services Private Limited in the domain of ${domain}.\n\nCongratulations! This internship is designed to provide you with practical exposure, hands-on learning, and project-based experience in your selected field. During the internship, you will work on assigned tasks, learning activities, documentation, and project submissions through the Jobify portal.`;
+    doc.text(bodyText1, 40, 215, { width: 515 });
 
     // Internship Details block
-    doc.font("Helvetica-Bold").text("Your internship details are as follows:", 40, 330);
+    doc.font("Times-Bold").text("Your internship details are as follows:", 40, 325);
     
-    doc.font("Helvetica").text("Domain: ", 40, 348, { continued: true }).font("Helvetica-Bold").text(domain);
-    doc.font("Helvetica").text("Mode: ", 40, 363, { continued: true }).font("Helvetica-Bold").text("Virtual");
-    doc.font("Helvetica").text("Duration: ", 40, 378, { continued: true }).font("Helvetica-Bold").text(durationLabel);
-    doc.font("Helvetica").text("Start Date: ", 40, 393, { continued: true }).font("Helvetica-Bold").text(startDateStr);
-    doc.font("Helvetica").text("End Date: ", 40, 408, { continued: true }).font("Helvetica-Bold").text(endDateStr);
+    doc.font("Times-Roman").text("Domain: ", 40, 342, { continued: true }).font("Times-Bold").text(domain);
+    doc.font("Times-Roman").text("Mode: ", 40, 357, { continued: true }).font("Times-Bold").text("Virtual");
+    doc.font("Times-Roman").text("Duration: ", 40, 372, { continued: true }).font("Times-Bold").text(durationLabel);
+    doc.font("Times-Roman").text("Start Date: ", 40, 387, { continued: true }).font("Times-Bold").text(startDateStr);
+    doc.font("Times-Roman").text("End Date: ", 40, 402, { continued: true }).font("Times-Bold").text(endDateStr);
 
     // Commitment and terms
-    doc.font("Helvetica-Bold").text("Weekly Commitment: 5 hours per week", 40, 435);
+    doc.font("Times-Bold").text("Weekly Commitment: 5 hours per week", 40, 428);
     
-    const bodyText2 = `The internship will be conducted for ${durationLabel}, as selected during registration. To be eligible for the internship completion certificate, the intern must complete the assigned tasks, project work, and required submissions within the specified timeline. This internship is intended for learning and skill development purposes and does not create an employer-employee relationship with Jobify.\n\nWe welcome you to the Jobify internship program and wish you a successful learning experience.`;
-    doc.font("Helvetica").fontSize(9.5).lineGap(4.5).fillColor("#333").text(bodyText2, 40, 455, { width: 515 });
+    const bodyText2 = `The internship will be conducted for ${durationLabel}, as selected during registration.To be eligible for the internship completion certificate, the intern must complete.\n\nthe assigned tasks, project work, and required submissions within the specified timeline.\n\nThisinternship is intended for learning and skill development purposes and does not create an employer-employee relationship with Jobify Technology & Services Private Limited.\n\nWe welcome you to the Jobify internship program and wish you a successful learning experience.`;
+    doc.font("Times-Roman").fontSize(9.5).lineGap(4.5).fillColor("#333").text(bodyText2, 40, 448, { width: 515 });
 
     // 7. Signature / Regards
-    doc.font("Helvetica").fontSize(9.5).lineGap(3).text("Regards,", 40, 580);
-    doc.font("Helvetica-Bold").text("Shruti Kumari", 40, 595);
-    doc.font("Helvetica").text("Human Resource", 40, 610);
-    doc.font("Helvetica").fillColor("#666").text("Jobify Ltd.", 40, 625);
+    doc.font("Times-Roman").fontSize(9.5).lineGap(3).text("Regards,", 40, 580);
+    doc.font("Times-Bold").text("HR Jobify", 40, 595);
 
     doc.end();
   });
