@@ -38,74 +38,74 @@ const G = {
 const CURRICULA = {
   "Python": {
     tasks: [
-      { week: 1, title: "Smart Command-Line Calculator", desc: "Create an interactive CLI calculator that handles operations, remembers history of past computations, and processes multi-argument operations cleanly.", materials: ["Python_Basics_and_Syntax.pdf"] },
-      { week: 2, title: "Guess the Number & Tic-Tac-Toe Game", desc: "Build a two-player Tic-Tac-Toe game playable inside the console. Design clean functions, 2D array representation for the board, and handle win/draw validation.", materials: ["Python_Functions_and_Lists.pdf"] },
-      { week: 3, title: "Classic Snake Game (Pygame)", desc: "Build a running snake game using the Pygame library. Implement snake movement keyboard controls, food spawning, boundary collisions, and score tracking.", materials: ["Intro_to_Pygame_and_Graphics.pdf"] },
-      { week: 4, title: "Advanced Desktop GUI Calculator (Tkinter)", desc: "Design and implement a graphical user interface (GUI) desktop calculator app using Python's native Tkinter library.", materials: ["Tkinter_GUI_Development.pdf"] },
-      { week: 5, title: "Web Price Scraper & CSV Exporter", desc: "Create a BeautifulSoup/Requests web scraper to fetch product names and prices from an e-commerce page and export the results to a CSV file.", materials: ["Web_Scraping_with_BeautifulSoup.pdf"] },
-      { week: 6, title: "Automated Email Bot (SMTP)", desc: "Write a script that reads dynamic customer names and emails from a CSV file and dispatches personalized emails automatically with attachment reports.", materials: ["Python_Email_Automation_and_SMTP.pdf"] },
-      { week: 7, title: "Database SQL connected Library System", desc: "Build a terminal-based Library Management System connected to SQLite database for managing books, authors, and student issue logs.", materials: ["Databases_in_Python_with_sqlite3.pdf"] },
-      { week: 8, title: "Live Weather GUI Application (APIs)", desc: "Build a custom GUI application using CustomTkinter/Tkinter that fetches weather updates from open APIs for searched locations.", materials: ["API_Request_Handling_and_JSON_Parsing.pdf"] }
+      { week: 1, title: "Smart Command-Line Calculator", desc: "Create an interactive CLI calculator that handles operations, remembers history of past computations, and processes multi-argument operations cleanly.", materials: ["Smart_Command_Line_Calculator.pdf"] },
+      { week: 2, title: "Guess the Number & Tic-Tac-Toe Game", desc: "Build a two-player Tic-Tac-Toe game playable inside the console. Design clean functions, 2D array representation for the board, and handle win/draw validation.", materials: ["Guess_the_Number_and_Tic_Tac_Toe_Game.pdf"] },
+      { week: 3, title: "Classic Snake Game (Pygame)", desc: "Build a running snake game using the Pygame library. Implement snake movement keyboard controls, food spawning, boundary collisions, and score tracking.", materials: ["Classic_Snake_Game_Pygame.pdf"] },
+      { week: 4, title: "Advanced Desktop GUI Calculator (Tkinter)", desc: "Design and implement a graphical user interface (GUI) desktop calculator app using Python's native Tkinter library.", materials: ["Advanced_Desktop_GUI_Calculator_Tkinter.pdf"] },
+      { week: 5, title: "Web Price Scraper & CSV Exporter", desc: "Create a BeautifulSoup/Requests web scraper to fetch product names and prices from an e-commerce page and export the results to a CSV file.", materials: ["Web_Price_Scraper_and_CSV_Exporter.pdf"] },
+      { week: 6, title: "Automated Email Bot (SMTP)", desc: "Write a script that reads dynamic customer names and emails from a CSV file and dispatches personalized emails automatically with attachment reports.", materials: ["Automated_Email_Bot_SMTP.pdf"] },
+      { week: 7, title: "Database SQL connected Library System", desc: "Build a terminal-based Library Management System connected to SQLite database for managing books, authors, and student issue logs.", materials: ["Database_SQL_connected_Library_System.pdf"] },
+      { week: 8, title: "Live Weather GUI Application (APIs)", desc: "Build a custom GUI application using CustomTkinter/Tkinter that fetches weather updates from open APIs for searched locations.", materials: ["Live_Weather_GUI_Application_APIs.pdf"] }
     ]
   },
   "Web Development": {
     tasks: [
-      { week: 1, title: "Personal Portfolio Website (HTML & CSS)", desc: "Build a fully responsive and clean personal portfolio page using semantic HTML and custom CSS. Show your skills, projects, and an interactive contact form.", materials: ["HTML5_CSS3_Responsive_Design.pdf"] },
-      { week: 2, title: "Interactive JavaScript Calculator & To-Do App", desc: "Create a modern, fully functional dynamic calculator and a persistent To-Do list application that stores tasks in LocalStorage and handles user input events.", materials: ["Modern_JavaScript_ES6_and_DOM.pdf"] },
-      { week: 3, title: "Interactive Quiz App (React.js Basics)", desc: "Build an interactive multiple-choice quiz app in React. Implement timer countdown, custom scorecards, state management using useState, and conditional rendering.", materials: ["React_Basics_States_and_Hooks.pdf"] },
-      { week: 4, title: "Weather Web App with Live API Integration", desc: "Create a web application that fetches live weather forecasts from a public API (like OpenWeatherMap) and displays temperature, humidity, and atmospheric conditions dynamically based on search inputs.", materials: ["React_APIs_and_Axios.pdf"] },
-      { week: 5, title: "Express.js Rest API (Task Manager Backend)", desc: "Build a Node.js and Express backend server. Expose CRUD REST API endpoints for user authentication, task creations, updates, and secure password hashing using bcrypt/JWT.", materials: ["ExpressJS_and_REST_APIs.pdf"] },
-      { week: 6, title: "MongoDB Integration (CRUD App)", desc: "Connect your Express server to a MongoDB Atlas database. Create models and schemas for Users and Tasks to persist data securely, replacing transient memory objects.", materials: ["MongoDB_and_Mongoose_Models.pdf"] },
-      { week: 7, title: "Full-Stack Project Integration", desc: "Connect your React frontend with the Express/MongoDB backend. Implement registration/login forms, save state across page reloads, and verify data flows between client and server.", materials: ["Connecting_React_to_NodeJS_Backend.pdf"] },
-      { week: 8, title: "Full Stack Live Deployment", desc: "Deploy the frontend to Netlify/Vercel and host your Express API backend live (e.g. Render/Railway). Verify data persistence and submit live production URLs.", materials: ["Full_Stack_Deployment_Guide.pdf"] }
+      { week: 1, title: "Personal Portfolio Website (HTML & CSS)", desc: "Build a fully responsive and clean personal portfolio page using semantic HTML and custom CSS. Show your skills, projects, and an interactive contact form.", materials: ["Personal_Portfolio_Website_HTML_CSS.pdf"] },
+      { week: 2, title: "Interactive JavaScript Calculator & To-Do App", desc: "Create a modern, fully functional dynamic calculator and a persistent To-Do list application that stores tasks in LocalStorage and handles user input events.", materials: ["Interactive_JavaScript_Calculator_and_To_Do_App.pdf"] },
+      { week: 3, title: "Interactive Quiz App (React.js Basics)", desc: "Build an interactive multiple-choice quiz app in React. Implement timer countdown, custom scorecards, state management using useState, and conditional rendering.", materials: ["Interactive_Quiz_App_ReactJS_Basics.pdf"] },
+      { week: 4, title: "Weather Web App with Live API Integration", desc: "Create a web application that fetches live weather forecasts from a public API (like OpenWeatherMap) and displays temperature, humidity, and atmospheric conditions dynamically based on search inputs.", materials: ["Weather_Web_App_with_Live_API_Integration.pdf"] },
+      { week: 5, title: "Express.js Rest API (Task Manager Backend)", desc: "Build a Node.js and Express backend server. Expose CRUD REST API endpoints for user authentication, task creations, updates, and secure password hashing using bcrypt/JWT.", materials: ["ExpressJS_REST_API_Task_Manager_Backend.pdf"] },
+      { week: 6, title: "MongoDB Integration (CRUD App)", desc: "Connect your Express server to a MongoDB Atlas database. Create models and schemas for Users and Tasks to persist data securely, replacing transient memory objects.", materials: ["MongoDB_Integration_CRUD_App.pdf"] },
+      { week: 7, title: "Full-Stack Project Integration", desc: "Connect your React frontend with the Express/MongoDB backend. Implement registration/login forms, save state across page reloads, and verify data flows between client and server.", materials: ["Full_Stack_Project_Integration.pdf"] },
+      { week: 8, title: "Full Stack Live Deployment", desc: "Deploy the frontend to Netlify/Vercel and host your Express API backend live (e.g. Render/Railway). Verify data persistence and submit live production URLs.", materials: ["Full_Stack_Live_Deployment.pdf"] }
     ]
   },
   "Java": {
     tasks: [
-      { week: 1, title: "CLI ATM Simulator", desc: "Build an ATM simulator handling PIN authentication, deposit, withdraw, and transaction history.", materials: ["Java_Basics_and_Syntax.pdf"] },
-      { week: 2, title: "Hospital Management CLI (OOP)", desc: "Create a console medical portal with Patient, Doctor, and Appointment objects showcasing core OOP features.", materials: ["Java_OOP_Principles.pdf"] },
-      { week: 3, title: "Student Gradebook Tracker (Collections)", desc: "Use lists, hashsets, and maps to manage a student database, calculate average grades, and search entries.", materials: ["Java_Collections_Framework.pdf"] },
-      { week: 4, title: "Multi-Threaded Task Server Simulator", desc: "Build a simulation of client requests queue being processed by worker threads using Java multithreading.", materials: ["Java_Threads_and_Exceptions.pdf"] },
-      { week: 5, title: "Database Book Registry with JDBC", desc: "Connect a Java CLI application to SQLite/MySQL using JDBC to query, add, and update a book inventory.", materials: ["Java_Database_Connectivity_JDBC.pdf"] },
-      { week: 6, title: "Spring Boot REST CRUD API", desc: "Build a Spring Boot backend exposing employee endpoint management with JSON formats.", materials: ["Spring_Boot_Essentials.pdf"] },
-      { week: 7, title: "Mock Unit Tests (JUnit & Mockito)", desc: "Write JUnit test cases for service layers, mocking repository classes with Mockito.", materials: ["Java_Testing_Frameworks.pdf"] },
-      { week: 8, title: "Tic-Tac-Toe Desktop App (Swing/JavaFX)", desc: "Create a fully functional interactive GUI Tic-Tac-Toe game using Java Swing components.", materials: ["Java_GUI_Swing_Tutorial.pdf"] }
+      { week: 1, title: "CLI ATM Simulator", desc: "Build an ATM simulator handling PIN authentication, deposit, withdraw, and transaction history.", materials: ["CLI_ATM_Simulator.pdf"] },
+      { week: 2, title: "Hospital Management CLI (OOP)", desc: "Create a console medical portal with Patient, Doctor, and Appointment objects showcasing core OOP features.", materials: ["Hospital_Management_CLI_OOP.pdf"] },
+      { week: 3, title: "Student Gradebook Tracker (Collections)", desc: "Use lists, hashsets, and maps to manage a student database, calculate average grades, and search entries.", materials: ["Student_Gradebook_Tracker_Collections.pdf"] },
+      { week: 4, title: "Multi-Threaded Task Server Simulator", desc: "Build a simulation of client requests queue being processed by worker threads using Java multithreading.", materials: ["Multi_Threaded_Task_Server_Simulator.pdf"] },
+      { week: 5, title: "Database Book Registry with JDBC", desc: "Connect a Java CLI application to SQLite/MySQL using JDBC to query, add, and update a book inventory.", materials: ["Database_Book_Registry_with_JDBC.pdf"] },
+      { week: 6, title: "Spring Boot REST CRUD API", desc: "Build a Spring Boot backend exposing employee endpoint management with JSON formats.", materials: ["Spring_Boot_REST_CRUD_API.pdf"] },
+      { week: 7, title: "Mock Unit Tests (JUnit & Mockito)", desc: "Write JUnit test cases for service layers, mocking repository classes with Mockito.", materials: ["Mock_Unit_Tests_JUnit_and_Mockito.pdf"] },
+      { week: 8, title: "Tic-Tac-Toe Desktop App (Swing/JavaFX)", desc: "Create a fully functional interactive GUI Tic-Tac-Toe game using Java Swing components.", materials: ["Tic_Tac_Toe_Desktop_App_Swing_JavaFX.pdf"] }
     ]
   },
   "C++": {
     tasks: [
-      { week: 1, title: "Interactive Operations & Calculator CLI", desc: "Create an interactive CLI calculator in C++ handling standard operators, input validation, and history lists.", materials: ["CPP_Core_Syntax_Guide.pdf"] },
-      { week: 2, title: "Bank Account Management System (Pointers & OOP)", desc: "Implement pointers and reference variables to manage user bank statements and modify balance variables dynamically.", materials: ["CPP_Pointers_and_References.pdf"] },
-      { week: 3, title: "Tic-Tac-Toe Console Game (OOP Classes)", desc: "Build a C++ console game with Board and Player classes, checking row/column/diagonal wins.", materials: ["CPP_Classes_and_OOP.pdf"] },
-      { week: 4, title: "Student Database with File Persistence", desc: "Implement C++ file streams (fstream) to save and load student data records from a physical text file.", materials: ["CPP_File_Streams_and_Persistence.pdf"] },
-      { week: 5, title: "Smart Pointer Memory Management Model", desc: "Implement custom resource managers tracking instance lifetimes using C++ unique_ptr and shared_ptr.", materials: ["CPP_Smart_Pointers_Manual.pdf"] },
-      { week: 6, title: "Contacts Manager using STL Vectors & Maps", desc: "Organize contacts in vectors and hash maps, implementing custom search and sorting utilities.", materials: ["CPP_STL_Containers_Handbook.pdf"] },
-      { week: 7, title: "Custom Exception Safe Database Handler", desc: "Validate user input exceptions and prevent crashes using try-catch blocks during program execution.", materials: ["CPP_Exception_Handling_Safety.pdf"] },
-      { week: 8, title: "File Encryption & Decryption Utility", desc: "Build a command-line file tool that encrypts the contents of a text file using basic cryptographic shift algorithms and decrypts it back.", materials: ["CPP_Cryptography_Principles.pdf"] }
+      { week: 1, title: "Interactive Operations & Calculator CLI", desc: "Create an interactive CLI calculator in C++ handling standard operators, input validation, and history lists.", materials: ["Interactive_Operations_and_Calculator_CLI.pdf"] },
+      { week: 2, title: "Bank Account Management System (Pointers & OOP)", desc: "Implement pointers and reference variables to manage user bank statements and modify balance variables dynamically.", materials: ["Bank_Account_Management_System_Pointers_and_OOP.pdf"] },
+      { week: 3, title: "Tic-Tac-Toe Console Game (OOP Classes)", desc: "Build a C++ console game with Board and Player classes, checking row/column/diagonal wins.", materials: ["Tic_Tac_Toe_Console_Game_OOP_Classes.pdf"] },
+      { week: 4, title: "Student Database with File Persistence", desc: "Implement C++ file streams (fstream) to save and load student data records from a physical text file.", materials: ["Student_Database_with_File_Persistence.pdf"] },
+      { week: 5, title: "Smart Pointer Memory Management Model", desc: "Implement custom resource managers tracking instance lifetimes using C++ unique_ptr and shared_ptr.", materials: ["Smart_Pointer_Memory_Management_Model.pdf"] },
+      { week: 6, title: "Contacts Manager using STL Vectors & Maps", desc: "Organize contacts in vectors and hash maps, implementing custom search and sorting utilities.", materials: ["Contacts_Manager_using_STL_Vectors_and_Maps.pdf"] },
+      { week: 7, title: "Custom Exception Safe Database Handler", desc: "Validate user input exceptions and prevent crashes using try-catch blocks during program execution.", materials: ["Custom_Exception_Safe_Database_Handler.pdf"] },
+      { week: 8, title: "File Encryption & Decryption Utility", desc: "Build a command-line file tool that encrypts the contents of a text file using basic cryptographic shift algorithms and decrypts it back.", materials: ["File_Encryption_and_Decryption_Utility.pdf"] }
     ]
   },
   "DSA": {
     tasks: [
-      { week: 1, title: "Two-Pointer & Sliding Window Problems", desc: "Solve 5 top array and string questions focusing on sliding windows and index pointers.", materials: ["Arrays_and_Sliding_Window.pdf"] },
-      { week: 2, title: "Recursion & Backtracking Algorithms", desc: "Implement recursive solutions for Permutations, Combinations, and solve N-Queens board placement.", materials: ["Recursion_and_Backtracking.pdf"] },
-      { week: 3, title: "Linked Lists, Stacks & Queues", desc: "Solve questions like Reverse Linked List, Valid Parentheses, and LRU Cache structures.", materials: ["Linear_Data_Structures_DSA.pdf"] },
-      { week: 4, title: "Binary Tree & Binary Search Tree Traversals", desc: "Build tree data structures, implement DFS/BFS, and solve validation questions.", materials: ["Binary_Trees_and_BST.pdf"] },
-      { week: 5, title: "Graph DFS & BFS Traversals", desc: "Implement graphs using adjacency lists and perform depth-first/breadth-first traversal routines.", materials: ["Graph_Theory_Algorithms.pdf"] },
-      { week: 6, title: "Dynamic Programming (Knapsack & LCS)", desc: "Build memoized and tabulated solutions for 0/1 Knapsack and Longest Common Subsequence.", materials: ["Dynamic_Programming_Foundations.pdf"] },
-      { week: 7, title: "Advanced Sorting & Heap Algorithms", desc: "Implement QuickSort/MergeSort and utilize priority queues for Kth Largest Element queries.", materials: ["Heaps_and_Sorting_Algorithms.pdf"] },
-      { week: 8, title: "Mock Interview Challenge Portfolio", desc: "Compile a final portfolio of 10 complex solved DSA questions, detailing time and space complexity in a README on GitHub.", materials: ["DSA_Interview_Preparation.pdf"] }
+      { week: 1, title: "Two-Pointer & Sliding Window Problems", desc: "Solve 5 top array and string questions focusing on sliding windows and index pointers.", materials: ["Two_Pointer_and_Sliding_Window_Problems.pdf"] },
+      { week: 2, title: "Recursion & Backtracking Algorithms", desc: "Implement recursive solutions for Permutations, Combinations, and solve N-Queens board placement.", materials: ["Recursion_and_Backtracking_Algorithms.pdf"] },
+      { week: 3, title: "Linked Lists, Stacks & Queues", desc: "Solve questions like Reverse Linked List, Valid Parentheses, and LRU Cache structures.", materials: ["Linked_Lists_Stacks_and_Queues.pdf"] },
+      { week: 4, title: "Binary Tree & Binary Search Tree Traversals", desc: "Build tree data structures, implement DFS/BFS, and solve validation questions.", materials: ["Binary_Tree_and_Binary_Search_Tree_Traversals.pdf"] },
+      { week: 5, title: "Graph DFS & BFS Traversals", desc: "Implement graphs using adjacency lists and perform depth-first/breadth-first traversal routines.", materials: ["Graph_DFS_and_BFS_Traversals.pdf"] },
+      { week: 6, title: "Dynamic Programming (Knapsack & LCS)", desc: "Build memoized and tabulated solutions for 0/1 Knapsack and Longest Common Subsequence.", materials: ["Dynamic_Programming_Knapsack_and_LCS.pdf"] },
+      { week: 7, title: "Advanced Sorting & Heap Algorithms", desc: "Implement QuickSort/MergeSort and utilize priority queues for Kth Largest Element queries.", materials: ["Advanced_Sorting_and_Heap_Algorithms.pdf"] },
+      { week: 8, title: "Mock Interview Challenge Portfolio", desc: "Compile a final portfolio of 10 complex solved DSA questions, detailing time and space complexity in a README on GitHub.", materials: ["Mock_Interview_Challenge_Portfolio.pdf"] }
     ]
   },
   "AI / ML": {
     tasks: [
-      { week: 1, title: "Vectorized Operations with NumPy", desc: "Implement dot products, matrix multiplication, and vector normalization metrics using NumPy.", materials: ["NumPy_and_Linear_Algebra.pdf"] },
-      { week: 2, title: "Linear Regression from Scratch", desc: "Implement simple linear regression training loops using gradient descent and calculate MSE.", materials: ["Linear_Regression_Gradient_Descent.pdf"] },
-      { week: 3, title: "E-Commerce Customer Segmentation (K-Means)", desc: "Preprocess dataset, find optimal cluster counts using elbow method, and plot K-Means groups.", materials: ["K_Means_Clustering_and_Data_Prep.pdf"] },
-      { week: 4, title: "Email Spam Classifier (Naive Bayes)", desc: "Vectorize text emails and build a text classifier to predict spam vs ham categories.", materials: ["Text_Classification_Naive_Bayes.pdf"] },
-      { week: 5, title: "Handwritten Digit Classifier (PyTorch)", desc: "Build a PyTorch Multi-Layer Perceptron neural network and train it on MNIST digit datasets.", materials: ["PyTorch_Deep_Learning_Basics.pdf"] },
-      { week: 6, title: "Object Classifier (Convolutional Neural Network)", desc: "Design CNN layers with PyTorch to perform object classification on CIFAR-10 datasets.", materials: ["Convolutional_Neural_Networks_CNN.pdf"] },
-      { week: 7, title: "Sentiment Analysis (LSTM/Transformers)", desc: "Fine-tune a HuggingFace BERT Transformer model or LSTM to classify text sentiment reviews.", materials: ["NLP_BERT_and_LSTMs.pdf"] },
-      { week: 8, title: "Model Server Deploy API (FastAPI)", desc: "Wrap your PyTorch/Scikit-Learn model in a FastAPI endpoint and return predictions dynamically.", materials: ["FastAPI_Model_Deployment.pdf"] }
+      { week: 1, title: "Vectorized Operations with NumPy", desc: "Implement dot products, matrix multiplication, and vector normalization metrics using NumPy.", materials: ["Vectorized_Operations_with_NumPy.pdf"] },
+      { week: 2, title: "Linear Regression from Scratch", desc: "Implement simple linear regression training loops using gradient descent and calculate MSE.", materials: ["Linear_Regression_from_Scratch.pdf"] },
+      { week: 3, title: "E-Commerce Customer Segmentation (K-Means)", desc: "Preprocess dataset, find optimal cluster counts using elbow method, and plot K-Means groups.", materials: ["E_Commerce_Customer_Segmentation_K_Means.pdf"] },
+      { week: 4, title: "Email Spam Classifier (Naive Bayes)", desc: "Vectorize text emails and build a text classifier to predict spam vs ham categories.", materials: ["Email_Spam_Classifier_Naive_Bayes.pdf"] },
+      { week: 5, title: "Handwritten Digit Classifier (PyTorch)", desc: "Build a PyTorch Multi-Layer Perceptron neural network and train it on MNIST digit datasets.", materials: ["Handwritten_Digit_Classifier_PyTorch.pdf"] },
+      { week: 6, title: "Object Classifier (Convolutional Neural Network)", desc: "Design CNN layers with PyTorch to perform object classification on CIFAR-10 datasets.", materials: ["Object_Classifier_Convolutional_Neural_Network.pdf"] },
+      { week: 7, title: "Sentiment Analysis (LSTM/Transformers)", desc: "Fine-tune a HuggingFace BERT Transformer model or LSTM to classify text sentiment reviews.", materials: ["Sentiment_Analysis_LSTM_Transformers.pdf"] },
+      { week: 8, title: "Model Server Deploy API (FastAPI)", desc: "Wrap your PyTorch/Scikit-Learn model in a FastAPI endpoint and return predictions dynamically.", materials: ["Model_Server_Deploy_API_FastAPI.pdf"] }
     ]
   }
 };
