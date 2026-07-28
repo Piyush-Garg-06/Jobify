@@ -35,78 +35,77 @@ const G = {
 };
 
 // Course curriculum data based on domain
-// Course curriculum data based on domain
 const CURRICULA = {
-  "Python": {
-    tasks: [
-      { week: 1, title: "Smart Command-Line Calculator", desc: "Create an interactive CLI calculator that handles operations, remembers history of past computations, and processes multi-argument operations cleanly.", materials: ["Python_Basics_and_Syntax.pdf"] },
-      { week: 2, title: "Guess the Number & Tic-Tac-Toe Game", desc: "Build a two-player Tic-Tac-Toe game playable inside the console. Design clean functions, 2D array representation for the board, and handle win/draw validation.", materials: ["Python_Functions_and_Lists.pdf"] },
-      { week: 3, title: "Classic Snake Game (Pygame)", desc: "Build a running snake game using the Pygame library. Implement snake movement keyboard controls, food spawning, boundary collisions, and score tracking.", materials: ["Intro_to_Pygame_and_Graphics.pdf"] },
-      { week: 4, title: "Advanced Desktop GUI Calculator (Tkinter)", desc: "Design and implement a graphical user interface (GUI) desktop calculator app using Python's native Tkinter library.", materials: ["Tkinter_GUI_Development.pdf"] },
-      { week: 5, title: "Web Price Scraper & CSV Exporter", desc: "Create a BeautifulSoup/Requests web scraper to fetch product names and prices from an e-commerce page and export the results to a CSV file.", materials: ["Web_Scraping_with_BeautifulSoup.pdf"] },
-      { week: 6, title: "Automated Email Bot (SMTP)", desc: "Write a script that reads dynamic customer names and emails from a CSV file and dispatches personalized emails automatically with attachment reports.", materials: ["Python_Email_Automation_and_SMTP.pdf"] },
-      { week: 7, title: "Database SQL connected Library System", desc: "Build a terminal-based Library Management System connected to SQLite database for managing books, authors, and student issue logs.", materials: ["Databases_in_Python_with_sqlite3.pdf"] },
-      { week: 8, title: "Live Weather GUI Application (APIs)", desc: "Build a custom GUI application using CustomTkinter/Tkinter that fetches weather updates from open APIs for searched locations.", materials: ["API_Request_Handling_and_JSON_Parsing.pdf"] }
-    ]
-  },
   "Web Development": {
     tasks: [
-      { week: 1, title: "Personal Portfolio Website (HTML & CSS)", desc: "Build a fully responsive and clean personal portfolio page using semantic HTML and custom CSS. Show your skills, projects, and an interactive contact form.", materials: ["HTML5_CSS3_Responsive_Design.pdf"] },
-      { week: 2, title: "Interactive JavaScript Calculator & To-Do App", desc: "Create a modern, fully functional dynamic calculator and a persistent To-Do list application that stores tasks in LocalStorage and handles user input events.", materials: ["Modern_JavaScript_ES6_and_DOM.pdf"] },
-      { week: 3, title: "Interactive Quiz App (React.js Basics)", desc: "Build an interactive multiple-choice quiz app in React. Implement timer countdown, custom scorecards, state management using useState, and conditional rendering.", materials: ["React_Basics_States_and_Hooks.pdf"] },
-      { week: 4, title: "Weather Web App with Live API Integration", desc: "Create a web application that fetches live weather forecasts from a public API (like OpenWeatherMap) and displays temperature, humidity, and atmospheric conditions dynamically based on search inputs.", materials: ["React_APIs_and_Axios.pdf"] },
-      { week: 5, title: "Express.js Rest API (Task Manager Backend)", desc: "Build a Node.js and Express backend server. Expose CRUD REST API endpoints for user authentication, task creations, updates, and secure password hashing using bcrypt/JWT.", materials: ["ExpressJS_and_REST_APIs.pdf"] },
-      { week: 6, title: "MongoDB Integration (CRUD App)", desc: "Connect your Express server to a MongoDB Atlas database. Create models and schemas for Users and Tasks to persist data securely, replacing transient memory objects.", materials: ["MongoDB_and_Mongoose_Models.pdf"] },
-      { week: 7, title: "Full-Stack Project Integration", desc: "Connect your React frontend with the Express/MongoDB backend. Implement registration/login forms, save state across page reloads, and verify data flows between client and server.", materials: ["Connecting_React_to_NodeJS_Backend.pdf"] },
-      { week: 8, title: "Full Stack Live Deployment", desc: "Deploy the frontend to Netlify/Vercel and host your Express API backend live (e.g. Render/Railway). Verify data persistence and submit live production URLs.", materials: ["Full_Stack_Deployment_Guide.pdf"] }
+      { week: 1, title: "HTML & CSS Landing Page", desc: "Build a fully responsive and clean product landing page using semantic HTML and custom CSS. Integrate typography, layouts, and forms.", materials: ["HTML5 Semantic Guide.pdf", "CSS Flexbox & Grid.pdf"] },
+      { week: 2, title: "JavaScript Dynamic Web App", desc: "Create a modern dynamic web application (e.g., a budgeting tool or dashboard) that manipulates the DOM, handles events, and stores state in LocalStorage.", materials: ["Eloquent JavaScript.pdf", "DOM Manipulation Tricks.pdf"] },
+      { week: 3, title: "React Component Library", desc: "Build a reusable UI library in React. Use props, state, hooks (useState, useEffect), and custom styling systems to design components.", materials: ["React Hooks Guide.pdf", "Component Thinking in React.pdf"] },
+      { week: 4, title: "Express REST API Backend", desc: "Set up a Node.js & Express server. Expose CRUD REST API endpoints for user authentication and resource management with input validation.", materials: ["Node & Express Basics.pdf", "REST API Best Practices.pdf"] },
+      { week: 5, title: "Database Integration (MongoDB/SQL)", desc: "Connect your backend server to a database. Implement schema models, relationships, and queries to persist student profile tasks securely.", materials: ["MongoDB Crash Course.pdf", "SQL vs NoSQL Handbook.pdf"] },
+      { week: 6, title: "Full-Stack Deployment & Hosting", desc: "Integrate your React frontend with the Express backend. Deploy the frontend to Vercel/Netlify, backend to Render/Fly.io, and verify live URLs.", materials: ["Fullstack Deployment Checklist.pdf"] },
+      { week: 7, title: "Performance Optimization & Testing", desc: "Implement API caching, compress frontend assets, and write unit/integration tests for your authentication and submission routes.", materials: ["Testing React & Node Apps.pdf"] },
+      { week: 8, title: "Final Capstone Project Showcase", desc: "Deliver a production-ready application solving a real-world problem. Incorporate user reviews, file uploads, and dashboard widgets.", materials: ["Capstone Presentation Guidelines.pdf"] }
     ]
   },
-  "Java": {
+  "Python": {
     tasks: [
-      { week: 1, title: "CLI ATM Simulator", desc: "Build an ATM simulator handling PIN authentication, deposit, withdraw, and transaction history.", materials: ["Java_Basics_and_Syntax.pdf"] },
-      { week: 2, title: "Hospital Management CLI (OOP)", desc: "Create a console medical portal with Patient, Doctor, and Appointment objects showcasing core OOP features.", materials: ["Java_OOP_Principles.pdf"] },
-      { week: 3, title: "Student Gradebook Tracker (Collections)", desc: "Use lists, hashsets, and maps to manage a student database, calculate average grades, and search entries.", materials: ["Java_Collections_Framework.pdf"] },
-      { week: 4, title: "Multi-Threaded Task Server Simulator", desc: "Build a simulation of client requests queue being processed by worker threads using Java multithreading.", materials: ["Java_Threads_and_Exceptions.pdf"] },
-      { week: 5, title: "Database Book Registry with JDBC", desc: "Connect a Java CLI application to SQLite/MySQL using JDBC to query, add, and update a book inventory.", materials: ["Java_Database_Connectivity_JDBC.pdf"] },
-      { week: 6, title: "Spring Boot REST CRUD API", desc: "Build a Spring Boot backend exposing employee endpoint management with JSON formats.", materials: ["Spring_Boot_Essentials.pdf"] },
-      { week: 7, title: "Mock Unit Tests (JUnit & Mockito)", desc: "Write JUnit test cases for service layers, mocking repository classes with Mockito.", materials: ["Java_Testing_Frameworks.pdf"] },
-      { week: 8, title: "Tic-Tac-Toe Desktop App (Swing/JavaFX)", desc: "Create a fully functional interactive GUI Tic-Tac-Toe game using Java Swing components.", materials: ["Java_GUI_Swing_Tutorial.pdf"] }
-    ]
-  },
-  "C++": {
-    tasks: [
-      { week: 1, title: "Interactive Operations & Calculator CLI", desc: "Create an interactive CLI calculator in C++ handling standard operators, input validation, and history lists.", materials: ["CPP_Core_Syntax_Guide.pdf"] },
-      { week: 2, title: "Bank Account Management System (Pointers & OOP)", desc: "Implement pointers and reference variables to manage user bank statements and modify balance variables dynamically.", materials: ["CPP_Pointers_and_References.pdf"] },
-      { week: 3, title: "Tic-Tac-Toe Console Game (OOP Classes)", desc: "Build a C++ console game with Board and Player classes, checking row/column/diagonal wins.", materials: ["CPP_Classes_and_OOP.pdf"] },
-      { week: 4, title: "Student Database with File Persistence", desc: "Implement C++ file streams (fstream) to save and load student data records from a physical text file.", materials: ["CPP_File_Streams_and_Persistence.pdf"] },
-      { week: 5, title: "Smart Pointer Memory Management Model", desc: "Implement custom resource managers tracking instance lifetimes using C++ unique_ptr and shared_ptr.", materials: ["CPP_Smart_Pointers_Manual.pdf"] },
-      { week: 6, title: "Contacts Manager using STL Vectors & Maps", desc: "Organize contacts in vectors and hash maps, implementing custom search and sorting utilities.", materials: ["CPP_STL_Containers_Handbook.pdf"] },
-      { week: 7, title: "Custom Exception Safe Database Handler", desc: "Validate user input exceptions and prevent crashes using try-catch blocks during program execution.", materials: ["CPP_Exception_Handling_Safety.pdf"] },
-      { week: 8, title: "File Encryption & Decryption Utility", desc: "Build a command-line file tool that encrypts the contents of a text file using basic cryptographic shift algorithms and decrypts it back.", materials: ["CPP_Cryptography_Principles.pdf"] }
-    ]
-  },
-  "DSA": {
-    tasks: [
-      { week: 1, title: "Two-Pointer & Sliding Window Problems", desc: "Solve 5 top array and string questions focusing on sliding windows and index pointers.", materials: ["Arrays_and_Sliding_Window.pdf"] },
-      { week: 2, title: "Recursion & Backtracking Algorithms", desc: "Implement recursive solutions for Permutations, Combinations, and solve N-Queens board placement.", materials: ["Recursion_and_Backtracking.pdf"] },
-      { week: 3, title: "Linked Lists, Stacks & Queues", desc: "Solve questions like Reverse Linked List, Valid Parentheses, and LRU Cache structures.", materials: ["Linear_Data_Structures_DSA.pdf"] },
-      { week: 4, title: "Binary Tree & Binary Search Tree Traversals", desc: "Build tree data structures, implement DFS/BFS, and solve validation questions.", materials: ["Binary_Trees_and_BST.pdf"] },
-      { week: 5, title: "Graph DFS & BFS Traversals", desc: "Implement graphs using adjacency lists and perform depth-first/breadth-first traversal routines.", materials: ["Graph_Theory_Algorithms.pdf"] },
-      { week: 6, title: "Dynamic Programming (Knapsack & LCS)", desc: "Build memoized and tabulated solutions for 0/1 Knapsack and Longest Common Subsequence.", materials: ["Dynamic_Programming_Foundations.pdf"] },
-      { week: 7, title: "Advanced Sorting & Heap Algorithms", desc: "Implement QuickSort/MergeSort and utilize priority queues for Kth Largest Element queries.", materials: ["Heaps_and_Sorting_Algorithms.pdf"] },
-      { week: 8, title: "Mock Interview Challenge Portfolio", desc: "Compile a final portfolio of 10 complex solved DSA questions, detailing time and space complexity in a README on GitHub.", materials: ["DSA_Interview_Preparation.pdf"] }
+      { week: 1, title: "Python Core Foundations", desc: "Solve challenges covering collections, lists, dictionary operations, functions, control loops, and basic file operations in Python.", materials: ["Python Basics Guide.pdf", "Pythonic Code Handbook.pdf"] },
+      { week: 2, title: "Object-Oriented Programming (OOP)", desc: "Build a terminal-based program using classes, inheritance, polymorphism, and encapsulation. Write clean Python classes.", materials: ["Python OOP Concepts.pdf"] },
+      { week: 3, title: "Data Scraping & APIs", desc: "Write scripts using Requests and BeautifulSoup/Scrapy to scrape data from websites and consume third-party API endpoints.", materials: ["Web Scraping with Python.pdf"] },
+      { week: 4, title: "Data Analysis with Pandas", desc: "Load real-world CSV/Excel datasets. Clean missing entries and perform exploratory data analysis using Pandas and NumPy.", materials: ["Pandas Data Analysis Handbook.pdf"] },
+      { week: 5, title: "Data Visualization & Dashboards", desc: "Generate meaningful plots and charts using Matplotlib and Seaborn. Set up a simple dashboard app using Streamlit.", materials: ["Python Data Visualization.pdf"] },
+      { week: 6, title: "Database Operations & ORM", desc: "Connect Python scripts to SQLite or MySQL databases. Build query scripts or map schemas using SQLAlchemy ORM.", materials: ["SQLAlchemy Guide.pdf"] },
+      { week: 7, title: "Introduction to Flask/Django", desc: "Build a lightweight web server or backend API endpoint using the Flask/Django framework.", materials: ["Flask Web Development.pdf"] },
+      { week: 8, title: "Automated Scripts & Scripting Project", desc: "Create a final automation tool that runs scheduled cron tasks, processes files, and sends email summaries.", materials: ["Automation with Python.pdf"] }
     ]
   },
   "AI / ML": {
     tasks: [
-      { week: 1, title: "Vectorized Operations with NumPy", desc: "Implement dot products, matrix multiplication, and vector normalization metrics using NumPy.", materials: ["NumPy_and_Linear_Algebra.pdf"] },
-      { week: 2, title: "Linear Regression from Scratch", desc: "Implement simple linear regression training loops using gradient descent and calculate MSE.", materials: ["Linear_Regression_Gradient_Descent.pdf"] },
-      { week: 3, title: "E-Commerce Customer Segmentation (K-Means)", desc: "Preprocess dataset, find optimal cluster counts using elbow method, and plot K-Means groups.", materials: ["K_Means_Clustering_and_Data_Prep.pdf"] },
-      { week: 4, title: "Email Spam Classifier (Naive Bayes)", desc: "Vectorize text emails and build a text classifier to predict spam vs ham categories.", materials: ["Text_Classification_Naive_Bayes.pdf"] },
-      { week: 5, title: "Handwritten Digit Classifier (PyTorch)", desc: "Build a PyTorch Multi-Layer Perceptron neural network and train it on MNIST digit datasets.", materials: ["PyTorch_Deep_Learning_Basics.pdf"] },
-      { week: 6, title: "Object Classifier (Convolutional Neural Network)", desc: "Design CNN layers with PyTorch to perform object classification on CIFAR-10 datasets.", materials: ["Convolutional_Neural_Networks_CNN.pdf"] },
-      { week: 7, title: "Sentiment Analysis (LSTM/Transformers)", desc: "Fine-tune a HuggingFace BERT Transformer model or LSTM to classify text sentiment reviews.", materials: ["NLP_BERT_and_LSTMs.pdf"] },
-      { week: 8, title: "Model Server Deploy API (FastAPI)", desc: "Wrap your PyTorch/Scikit-Learn model in a FastAPI endpoint and return predictions dynamically.", materials: ["FastAPI_Model_Deployment.pdf"] }
+      { week: 1, title: "Linear Algebra & Probability Review", desc: "Implement foundational mathematical concepts in NumPy: matrix math, derivatives, and statistical distributions.", materials: ["Math for Machine Learning.pdf"] },
+      { week: 2, title: "Supervised Learning Models", desc: "Build and train Linear Regression and Logistic Regression models from scratch using NumPy and verify results using Scikit-Learn.", materials: ["Supervised Learning Basics.pdf"] },
+      { week: 3, title: "Classification & Tree Models", desc: "Implement Decision Trees, Random Forests, and Support Vector Machines. Clean datasets and handle categorical variables.", materials: ["Classification Algorithms.pdf"] },
+      { week: 4, title: "Unsupervised Clustering", desc: "Build K-Means clustering and PCA dimensionality reduction algorithms to segment custom dataset categories.", materials: ["Unsupervised Learning Guide.pdf"] },
+      { week: 5, title: "Deep Learning Foundations (MLP)", desc: "Build a Multi-Layer Perceptron (neural network) using raw Python/NumPy, implementing forward and backward propagation.", materials: ["Neural Networks Explained.pdf"] },
+      { week: 6, title: "PyTorch & Computer Vision", desc: "Build a Convolutional Neural Network (CNN) in PyTorch to classify handwritten digits (MNIST) or object images (CIFAR-10).", materials: ["PyTorch Essentials.pdf"] },
+      { week: 7, title: "NLP & Sequence Modeling", desc: "Implement text tokenization, TF-IDF representations, and design a recurrent model (LSTM/GRU) or use Transformers for sentiment analysis.", materials: ["Natural Language Processing.pdf"] },
+      { week: 8, title: "Model Deployment & ML APIs", desc: "Export your trained PyTorch/Scikit-Learn model and wrap it in a FastAPI endpoint. Deploy the API to a server.", materials: ["Deploying ML Models.pdf"] }
+    ]
+  },
+  "C++": {
+    tasks: [
+      { week: 1, title: "C++ Core Foundations", desc: "Basic input/output, standard variables, conditional branches, loops, and custom logic control flows in C++.", materials: ["CPP Core Syntax Guide.pdf"] },
+      { week: 2, title: "Functions, Pointers & References", desc: "Understand pass-by-value, pass-by-reference, dynamic memory allocation, and pointer arithmetic in C++.", materials: ["CPP Pointers & References.pdf"] },
+      { week: 3, title: "Object-Oriented Programming (OOP)", desc: "Build programs using C++ classes, inheritance, polymorphism, encapsulation, virtual functions, and abstract classes.", materials: ["CPP OOP Handbook.pdf"] },
+      { week: 4, title: "File Operations & IO Streams", desc: "Read and write data dynamically using ifstream, ofstream, and fstream libraries. Parse formatted data reports.", materials: ["CPP File Handling Guide.pdf"] },
+      { week: 5, title: "Memory Management & Smart Pointers", desc: "Implement custom constructors/destructors. Avoid memory leaks using unique_ptr, shared_ptr, and weak_ptr.", materials: ["CPP Smart Pointers Manual.pdf"] },
+      { week: 6, title: "Standard Template Library (STL)", desc: "Leverage standard containers like vector, list, map, set, and standard sorting/searching algorithms.", materials: ["CPP STL Cheatsheet.pdf"] },
+      { week: 7, title: "Exception Handling & Debugging", desc: "Handle runtime execution errors using try-catch blocks and debug using GDB or custom logging tools.", materials: ["CPP Debugging Guide.pdf"] },
+      { week: 8, title: "Final Capstone CLI System Project", desc: "Deliver a clean C++ command-line application (e.g. Bank Account or Library Management System) using OOP principles.", materials: ["CPP Capstone Guidelines.pdf"] }
+    ]
+  },
+  "Java": {
+    tasks: [
+      { week: 1, title: "Java Foundations & Core Syntax", desc: "Explore variables, primitive data types, branching conditions, loops, and simple console applications in Java.", materials: ["Java Basics Syntax Guide.pdf"] },
+      { week: 2, title: "Object-Oriented Java Programming", desc: "Master classes, inheritance, abstract classes, interfaces, method overloading/overriding, and packages in Java.", materials: ["Java OOP Principles.pdf"] },
+      { week: 3, title: "Java Collections Framework", desc: "Organize data arrays using standard lists (ArrayList), sets (HashSet), and key-value maps (HashMap).", materials: ["Java Collections Manual.pdf"] },
+      { week: 4, title: "Exception Handling & Multithreading", desc: "Handle runtime faults using try-catch-finally. Write multi-threaded scripts using Runnable and Thread.", materials: ["Java Exceptions & Threads.pdf"] },
+      { week: 5, title: "File I/O & JDBC Database Connection", desc: "Read/write files and connect your Java application to databases using standard JDBC drivers.", materials: ["Java Database Connectivity.pdf"] },
+      { week: 6, title: "Spring Boot Web Framework Basics", desc: "Build a simple REST API backend using Spring Boot controllers, routing annotations, and JSON responses.", materials: ["Spring Boot Essentials.pdf"] },
+      { week: 7, title: "Unit Testing & Framework Tools", desc: "Write robust tests using JUnit and Mockito to assert the behavior of controllers and service classes.", materials: ["Java Unit Testing.pdf"] },
+      { week: 8, title: "Capstone JavaFX / Web API Project", desc: "Design and implement a complete Java application showcase with standard database state persistence.", materials: ["Java Capstone Project Guidelines.pdf"] }
+    ]
+  },
+  "DSA": {
+    tasks: [
+      { week: 1, title: "Time Complexity & Array Operations", desc: "Compute Big-O bounds. Implement array traversals, prefix sums, two-pointer techniques, and binary search.", materials: ["Time Complexity Handbook.pdf", "Array Problems.pdf"] },
+      { week: 2, title: "Recursion & Backtracking", desc: "Master recursive functions, call stacks, and backtrack puzzles like N-Queens or subset generation.", materials: ["Recursion & Backtracking Guide.pdf"] },
+      { week: 3, title: "Linked Lists, Stacks & Queues", desc: "Build singly/doubly linked lists. Implement stack/queue data structures and solve parentheses/sliding window problems.", materials: ["Linear Data Structures.pdf"] },
+      { week: 4, title: "Hashing & Tree Algorithms", desc: "Utilize hash tables. Build and traverse binary trees, BSTs, and solve lowest common ancestor problems.", materials: ["Hashing & Binary Trees.pdf"] },
+      { week: 5, title: "Graph Representations & Traversals", desc: "Represent graphs using adjacency lists. Implement Depth First Search (DFS) and Breadth First Search (BFS).", materials: ["Graph Algorithms Guide.pdf"] },
+      { week: 6, title: "Sorting & Searching Optimizations", desc: "Compare Merge Sort, Quick Sort, and Heap Sort. Solve interval problems and selection challenges.", materials: ["Sorting & Searching.pdf"] },
+      { week: 7, title: "Dynamic Programming Foundations", desc: "Understand memoization vs tabulation. Solve classic DP problems (Fibonacci, Knapsack, Longest Common Subsequence).", materials: ["Dynamic Programming Basics.pdf"] },
+      { week: 8, title: "Final Advanced Problem Solver Portfolio", desc: "Solve a selected set of top interview coding problems and document your optimized solutions on GitHub.", materials: ["DSA Portfolio Showcase.pdf"] }
     ]
   }
 };
@@ -1019,31 +1018,33 @@ export default function LMSPortal() {
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4">
-                {(CURRICULA[domain]?.tasks || []).map((task) => {
-                  const bookFile = task.materials?.[0] || "";
-                  const bookTitle = task.title;
-                  const bookDesc = `Weekly learning manual: ${task.desc.split(".")[0]}.`;
-                  return (
-                    <div key={bookTitle} className="p-4 rounded-xl border border-slate-200 bg-white hover:border-blue-300 transition flex items-start gap-4 shadow-sm hover:shadow-md">
-                      <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ background: C.orangeLight }}>
-                        <FileText size={20} style={{ color: C.orange }} />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-bold text-slate-800 text-xs truncate" style={{ fontFamily: "Outfit, sans-serif" }}>{bookTitle}</h4>
-                        <p className="text-[11px] text-slate-400 mt-1 leading-relaxed">{bookDesc}</p>
-                        <div className="flex items-center justify-between mt-3">
-                          <span className="text-[10px] text-slate-400 font-semibold">Week {task.week} · PDF</span>
-                          <button
-                            onClick={() => window.open(`/resources/${bookFile}`, "_blank")}
-                            className="flex items-center gap-1.5 px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200 hover:bg-slate-50 transition text-slate-700"
-                          >
-                            <Download size={11} /> Open PDF
-                          </button>
-                        </div>
+                {[
+                  { title: "HTML5 & CSS3 Standard Reference", desc: "A comprehensive guide on styling layouts, grids, animations, and forms.", size: "4.8 MB", file: "HTML5_and_CSS3_Standard_Reference.pdf" },
+                  { title: "Eloquent JavaScript (3rd Edition)", desc: "Deep dive into language mechanics, objects, classes, closures, and async actions.", size: "12.4 MB", file: "Eloquent_JavaScript_3rd_Edition.pdf" },
+                  { title: "React Hooks & State Management", desc: "Structured book covering custom Hooks, Context API, and state optimization.", size: "6.2 MB", file: "React_Hooks_and_State_Management.pdf" },
+                  { title: "Node.js REST API Best Practices", desc: "Express security, token cookies, input sanitization, and structured routing.", size: "3.5 MB", file: "Node_js_REST_API_Best_Practices.pdf" },
+                  { title: "Python Automation & Scripting Guide", desc: "Automating excel, database queries, mail triggers, and tasks scheduling.", size: "8.1 MB", file: "Python_Automation_and_Scripting_Guide.pdf" },
+                  { title: "Deep Learning Foundations Textbook", desc: "Mathematical review, backpropagation, CNNs, LSTMs, and PyTorch concepts.", size: "15.6 MB", file: "Deep_Learning_Foundations_Textbook.pdf" }
+                ].map((book) => (
+                  <div key={book.title} className="p-4 rounded-xl border border-slate-200 bg-white hover:border-blue-300 transition flex items-start gap-4 shadow-sm hover:shadow-md">
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ background: C.orangeLight }}>
+                      <FileText size={20} style={{ color: C.orange }} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-bold text-slate-800 text-xs truncate" style={{ fontFamily: "Outfit, sans-serif" }}>{book.title}</h4>
+                      <p className="text-[11px] text-slate-400 mt-1 leading-relaxed">{book.desc}</p>
+                      <div className="flex items-center justify-between mt-3">
+                        <span className="text-[10px] text-slate-400 font-semibold">{book.size} · PDF</span>
+                        <button
+                          onClick={() => window.open(`/resources/${book.file}`, "_blank")}
+                          className="flex items-center gap-1.5 px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200 hover:bg-slate-50 transition text-slate-700"
+                        >
+                          <Download size={11} /> Download
+                        </button>
                       </div>
                     </div>
-                  );
-                })}
+                  </div>
+                ))}
               </div>
             </div>
           )}
