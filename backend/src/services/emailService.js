@@ -89,8 +89,8 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
     // 1. Watermark Background Logo (drawn first)
     if (logoExists) {
       doc.save();
-      doc.opacity(0.045);
-      doc.image(logoPath, 147, 270, { width: 300 });
+      doc.opacity(0.12);
+      doc.image(logoPath, 137, 260, { width: 320 });
       doc.restore();
     }
 
@@ -99,8 +99,9 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
     // Gold Wave (drawn first, behind)
     doc.fillColor("#FFB800")
        .moveTo(0, 841)
-       .lineTo(0, 770)
-       .bezierCurveTo(150, 730, 350, 830, 595, 770)
+       .lineTo(0, 805)
+       .bezierCurveTo(120, 835, 280, 815, 420, 775)
+       .bezierCurveTo(490, 755, 550, 785, 595, 810)
        .lineTo(595, 841)
        .closePath()
        .fill();
@@ -108,8 +109,9 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
     // Navy Blue Wave (drawn on top, shifted down to create a gold stripe effect)
     doc.fillColor("#0A2540")
        .moveTo(0, 841)
-       .lineTo(0, 790)
-       .bezierCurveTo(150, 750, 350, 850, 595, 790)
+       .lineTo(0, 820)
+       .bezierCurveTo(120, 850, 280, 830, 420, 790)
+       .bezierCurveTo(490, 770, 550, 800, 595, 825)
        .lineTo(595, 841)
        .closePath()
        .fill();
@@ -118,34 +120,50 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
     // 3. Header Section
     // Logo (Top Left)
     if (logoExists) {
-      doc.image(logoPath, 40, 20, { width: 100 });
+      doc.image(logoPath, 40, 15, { width: 130 });
     }
 
     // QR Code (Top Middle)
     if (qrExists) {
-      doc.image(qrPath, 165, 20, { width: 70 });
+      doc.image(qrPath, 195, 15, { width: 75, height: 75 });
     }
 
-    // Contact info (Top Right)
-    doc.fontSize(8.5).font("Helvetica").fillColor("#0A2540");
-    
-    // Address Pin (Red)
-    doc.fillColor("#E53E3E").circle(370, 42, 3.5).fill();
-    doc.fillColor("#0A2540").text("Jaipur, Rajasthan, India", 380, 39);
-    
-    // Phone (Dark Grey)
-    doc.fillColor("#4A5568").circle(370, 55, 3.5).fill();
-    doc.fillColor("#0A2540").text("+91 79764 86392", 380, 52);
-    
-    // Email (Blue)
-    doc.fillColor("#3182CE").circle(370, 68, 3.5).fill();
-    doc.fillColor("#0A2540").text("jobify.internship@gmail.com", 380, 65);
+    // Contact info (Top Right) with actual vector SVG paths
+    // Map Pin Icon (Red)
+    doc.save()
+       .translate(365, 38)
+       .scale(0.4)
+       .path("M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z")
+       .fill("#E53E3E")
+       .restore();
+
+    // Phone Icon (Grey)
+    doc.save()
+       .translate(365, 52)
+       .scale(0.4)
+       .path("M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z")
+       .fill("#4A5568")
+       .restore();
+
+    // Envelope Icon (Blue)
+    doc.save()
+       .translate(365, 66)
+       .scale(0.4)
+       .path("M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z")
+       .fill("#3182CE")
+       .restore();
+
+    // Contact info text
+    doc.fontSize(9).font("Helvetica").fillColor("#1A202C");
+    doc.text("Jaipur, Rajasthan, India", 380, 39);
+    doc.text("+91 79764 86392", 380, 53);
+    doc.text("jobify.internship@gmail.com", 380, 67);
 
     // Blue horizontal divider line
-    doc.strokeColor("#0A2540").lineWidth(2).moveTo(40, 115).lineTo(555, 115).stroke();
+    doc.strokeColor("#0A2540").lineWidth(2.5).moveTo(40, 100).lineTo(555, 100).stroke();
 
     // 4. Document Title
-    doc.fontSize(24).font("Times-Bold").fillColor("#0A2540").text("Offer Letter", 40, 135, { align: "center" });
+    doc.fontSize(26).font("Times-Bold").fillColor("#0A2540").text("Offer Letter", 40, 120, { align: "center" });
 
     // Date (Top Right)
     const letterDate = new Date().toLocaleDateString("en-US", {
@@ -153,37 +171,37 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
       day: "numeric",
       year: "numeric",
     });
-    doc.fontSize(10.5).font("Times-Roman").fillColor("#333").text(letterDate, 40, 160, { align: "right" });
+    doc.fontSize(11).font("Times-Roman").fillColor("#000000").text(letterDate, 40, 150, { align: "right" });
 
     // 5. Greeting
-    doc.fontSize(10.5).font("Times-Bold").fillColor("#333").text(`Dear ${name},`, 40, 190);
+    doc.fontSize(11).font("Times-Bold").fillColor("#000000").text(`Dear ${name},`, 40, 175);
 
     // 6. Body text
     const { label: durationLabel, startDateStr, endDateStr } = getDurationDetails(duration);
     
-    doc.font("Times-Roman").fontSize(9.5).lineGap(4.5).fillColor("#333");
+    doc.font("Times-Roman").fontSize(10.5).lineGap(4.8).fillColor("#000000");
     
     const bodyText1 = `We are pleased to offer you a virtual internship at Jobify Technology & Services Private Limited in the domain of ${domain}.\n\nCongratulations! This internship is designed to provide you with practical exposure, hands-on learning, and project-based experience in your selected field. During the internship, you will work on assigned tasks, learning activities, documentation, and project submissions through the Jobify portal.`;
-    doc.text(bodyText1, 40, 215, { width: 515 });
+    doc.text(bodyText1, 40, 200, { width: 515 });
 
     // Internship Details block
     doc.font("Times-Bold").text("Your internship details are as follows:", 40, 325);
     
-    doc.font("Times-Roman").text("Domain: ", 40, 342, { continued: true }).font("Times-Bold").text(domain);
-    doc.font("Times-Roman").text("Mode: ", 40, 357, { continued: true }).font("Times-Bold").text("Virtual");
-    doc.font("Times-Roman").text("Duration: ", 40, 372, { continued: true }).font("Times-Bold").text(durationLabel);
-    doc.font("Times-Roman").text("Start Date: ", 40, 387, { continued: true }).font("Times-Bold").text(startDateStr);
-    doc.font("Times-Roman").text("End Date: ", 40, 402, { continued: true }).font("Times-Bold").text(endDateStr);
+    doc.font("Times-Roman").text("Domain: ", 40, 345, { continued: true }).font("Times-Bold").text(domain);
+    doc.font("Times-Roman").text("Mode: ", 40, 362, { continued: true }).font("Times-Bold").text("Virtual");
+    doc.font("Times-Roman").text("Duration: ", 40, 379, { continued: true }).font("Times-Bold").text(durationLabel);
+    doc.font("Times-Roman").text("Start Date: ", 40, 396, { continued: true }).font("Times-Bold").text(startDateStr);
+    doc.font("Times-Roman").text("End Date: ", 40, 413, { continued: true }).font("Times-Bold").text(endDateStr);
 
     // Commitment and terms
-    doc.font("Times-Bold").text("Weekly Commitment: 5 hours per week", 40, 428);
+    doc.font("Times-Bold").text("Weekly Commitment: 5 hours per week", 40, 438);
     
     const bodyText2 = `The internship will be conducted for ${durationLabel}, as selected during registration.To be eligible for the internship completion certificate, the intern must complete.\n\nthe assigned tasks, project work, and required submissions within the specified timeline.\n\nThisinternship is intended for learning and skill development purposes and does not create an employer-employee relationship with Jobify Technology & Services Private Limited.\n\nWe welcome you to the Jobify internship program and wish you a successful learning experience.`;
-    doc.font("Times-Roman").fontSize(9.5).lineGap(4.5).fillColor("#333").text(bodyText2, 40, 448, { width: 515 });
+    doc.text(bodyText2, 40, 465, { width: 515 });
 
     // 7. Signature / Regards
-    doc.font("Times-Roman").fontSize(9.5).lineGap(3).text("Regards,", 40, 580);
-    doc.font("Times-Bold").text("HR Jobify", 40, 595);
+    doc.font("Times-Roman").fontSize(10.5).lineGap(3).text("Regards,", 40, 625);
+    doc.font("Times-Bold").text("HR Jobify", 40, 642);
 
     doc.end();
   });
