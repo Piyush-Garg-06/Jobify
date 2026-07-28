@@ -5,7 +5,7 @@ import morgan from "morgan";
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
-import { connectDB } from "./config/db.js";
+import { connectDB, lastDbError } from "./config/db.js";
 import { seedDatabase } from "./config/seed.js";
 import mongoose from "mongoose";
 
@@ -46,6 +46,8 @@ app.get("/health", (req, res) => {
     status: "OK", 
     timestamp: new Date(),
     dbConnected: mongoose.connection.readyState === 1,
+    dbState: mongoose.connection.readyState,
+    dbError: lastDbError,
     hasMongoUri: !!process.env.MONGODB_URI,
     hasJwtSecret: !!process.env.JWT_SECRET,
     nodeEnv: process.env.NODE_ENV
