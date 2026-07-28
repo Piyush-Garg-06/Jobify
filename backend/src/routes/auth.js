@@ -38,7 +38,8 @@ router.post("/login", async (req, res) => {
       res.status(401).json({ success: false, message: "Invalid username or password" });
     }
   } catch (error) {
-    res.status(500).json({ success: false, message: "Server error during login" });
+    console.error("Login error:", error);
+    res.status(500).json({ success: false, message: `Server error during login: ${error.message}` });
   }
 });
 
