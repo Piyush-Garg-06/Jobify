@@ -90,7 +90,7 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
     if (logoExists) {
       doc.save();
       doc.opacity(0.16);
-      doc.image(logoPath, 57, 180, { width: 480 });
+      doc.image(logoPath, 32, 155, { width: 530 });
       doc.restore();
     }
 
@@ -99,9 +99,9 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
     // Gold Wave (drawn first, behind)
     doc.fillColor("#FFB800")
        .moveTo(0, 841)
-       .lineTo(0, 805)
-       .bezierCurveTo(120, 835, 280, 815, 420, 775)
-       .bezierCurveTo(490, 755, 550, 785, 595, 810)
+       .lineTo(0, 765)
+       .bezierCurveTo(120, 795, 280, 775, 420, 735)
+       .bezierCurveTo(490, 715, 550, 745, 595, 770)
        .lineTo(595, 841)
        .closePath()
        .fill();
@@ -109,9 +109,9 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
     // Navy Blue Wave (drawn on top, shifted down to create a gold stripe effect)
     doc.fillColor("#0A2540")
        .moveTo(0, 841)
-       .lineTo(0, 820)
-       .bezierCurveTo(120, 850, 280, 830, 420, 790)
-       .bezierCurveTo(490, 770, 550, 800, 595, 825)
+       .lineTo(0, 780)
+       .bezierCurveTo(120, 810, 280, 790, 420, 750)
+       .bezierCurveTo(490, 730, 550, 760, 595, 785)
        .lineTo(595, 841)
        .closePath()
        .fill();
