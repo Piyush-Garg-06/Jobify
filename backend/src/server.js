@@ -7,6 +7,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { connectDB } from "./config/db.js";
 import { seedDatabase } from "./config/seed.js";
+import mongoose from "mongoose";
 
 // Routes imports
 import authRoutes from "./routes/auth.js";
@@ -41,7 +42,14 @@ app.get("/", (req, res) => {
 
 // Health check endpoint
 app.get("/health", (req, res) => {
-  res.json({ status: "OK", timestamp: new Date() });
+  res.json({ 
+    status: "OK", 
+    timestamp: new Date(),
+    dbConnected: mongoose.connection.readyState === 1,
+    hasMongoUri: !!process.env.MONGODB_URI,
+    hasJwtSecret: !!process.env.JWT_SECRET,
+    nodeEnv: process.env.NODE_ENV
+  });
 });
 
 const PORT = process.env.PORT || 5000;
