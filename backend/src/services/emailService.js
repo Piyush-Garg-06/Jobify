@@ -179,7 +179,7 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
     // 6. Body text
     const { label: durationLabel, startDateStr, endDateStr } = getDurationDetails(duration);
     
-    doc.font("Times-Roman").fontSize(12.5).lineGap(4.2).fillColor("#000000");
+    doc.font("Times-Roman").fontSize(12.5).lineGap(1.5).fillColor("#000000");
     
     const bodyText1 = `We are pleased to offer you a virtual internship at Jobify Technology & Services Private Limited in the domain of ${domain}.\n\nCongratulations! This internship is designed to provide you with practical exposure, hands-on learning, and project-based experience in your selected field. During the internship, you will work on assigned tasks, learning activities, documentation, and project submissions through the Jobify portal.`;
     doc.text(bodyText1, 40, 205, { width: 515 });
@@ -189,7 +189,7 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
     doc.font("Times-Bold").text("Your internship details are as follows:", 40, yDetailsHeader);
     
     const yDetailsList = doc.y + 8;
-    doc.font("Times-Roman").lineGap(4.5);
+    doc.font("Times-Roman").lineGap(2.0);
     doc.text("Domain: ", 40, yDetailsList, { continued: true }).font("Times-Bold").text(domain);
     doc.font("Times-Roman").text("Mode: ", 40, doc.y + 5, { continued: true }).font("Times-Bold").text("Virtual");
     doc.font("Times-Roman").text("Duration: ", 40, doc.y + 5, { continued: true }).font("Times-Bold").text(durationLabel);
@@ -201,13 +201,13 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
     doc.font("Times-Bold").text("Weekly Commitment: 5 hours per week", 40, yCommitment);
     
     const yBody2 = doc.y + 15;
-    doc.font("Times-Roman").lineGap(4.2);
+    doc.font("Times-Roman").lineGap(1.5);
     const bodyText2 = `The internship will be conducted for ${durationLabel}, as selected during registration.To be eligible for the internship completion certificate, the intern must complete.\n\nthe assigned tasks, project work, and required submissions within the specified timeline.\n\nThisinternship is intended for learning and skill development purposes and does not create an employer-employee relationship with Jobify Technology & Services Private Limited.\n\nWe welcome you to the Jobify internship program and wish you a successful learning experience.`;
     doc.text(bodyText2, 40, yBody2, { width: 515 });
 
     // 7. Signature / Regards
     const yRegards = doc.y + 25;
-    doc.font("Times-Roman").fontSize(12.5).lineGap(3).text("Regards,", 40, yRegards);
+    doc.font("Times-Roman").fontSize(12.5).lineGap(2).text("Regards,", 40, yRegards);
     doc.font("Times-Bold").fontSize(13).text("HR Jobify", 40, doc.y + 4);
 
     doc.end();
