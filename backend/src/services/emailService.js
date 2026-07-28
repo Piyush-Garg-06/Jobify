@@ -89,8 +89,8 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
     // 1. Watermark Background Logo (drawn first)
     if (logoExists) {
       doc.save();
-      doc.opacity(0.15);
-      doc.image(logoPath, 77, 200, { width: 440 });
+      doc.opacity(0.16);
+      doc.image(logoPath, 57, 180, { width: 480 });
       doc.restore();
     }
 
@@ -120,12 +120,12 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
     // 3. Header Section
     // Logo (Top Left)
     if (logoExists) {
-      doc.image(logoPath, 40, 15, { width: 140 });
+      doc.image(logoPath, 40, 15, { width: 160 });
     }
 
     // QR Code (Top Middle)
     if (qrExists) {
-      doc.image(qrPath, 195, 15, { width: 80, height: 80 });
+      doc.image(qrPath, 210, 12, { width: 85, height: 85 });
     }
 
     // Contact info (Top Right) with actual vector SVG paths
