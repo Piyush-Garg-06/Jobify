@@ -89,8 +89,8 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
     // 1. Watermark Background Logo (drawn first)
     if (logoExists) {
       doc.save();
-      doc.opacity(0.16);
-      doc.image(logoPath, 32, 155, { width: 530 });
+      doc.opacity(0.15);
+      doc.image(logoPath, 15, 140, { width: 565 });
       doc.restore();
     }
 
