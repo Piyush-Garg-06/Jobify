@@ -29,6 +29,20 @@ app.use(helmet({
 }));
 app.use(morgan("dev"));
 
+// Middleware to ensure DB connection is ready before handling requests
+app.use(async (req, res, next) => {
+  // Bypassing database check for local status endpoints if desired, but good to keep for consistency
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: `Database connection failed: ${error.message}`
+    });
+  }
+});
+
 // API Router Mounts
 app.use("/api/auth", authRoutes);
 app.use("/api/submissions", submissionRoutes);
