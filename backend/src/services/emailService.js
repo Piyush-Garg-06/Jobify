@@ -179,31 +179,36 @@ export const generateOfferLetterPDF = (name, domain, duration, college) => {
     // 6. Body text
     const { label: durationLabel, startDateStr, endDateStr } = getDurationDetails(duration);
     
-    doc.font("Times-Roman").fontSize(12.5).lineGap(6).fillColor("#000000");
+    doc.font("Times-Roman").fontSize(12.5).lineGap(4.2).fillColor("#000000");
     
     const bodyText1 = `We are pleased to offer you a virtual internship at Jobify Technology & Services Private Limited in the domain of ${domain}.\n\nCongratulations! This internship is designed to provide you with practical exposure, hands-on learning, and project-based experience in your selected field. During the internship, you will work on assigned tasks, learning activities, documentation, and project submissions through the Jobify portal.`;
     doc.text(bodyText1, 40, 205, { width: 515 });
 
     // Internship Details block
-    doc.font("Times-Bold").text("Your internship details are as follows:", 40, 360);
+    const yDetailsHeader = doc.y + 20;
+    doc.font("Times-Bold").text("Your internship details are as follows:", 40, yDetailsHeader);
     
-    doc.font("Times-Roman").lineGap(6.5);
-    doc.text("Domain: ", 40, 385, { continued: true }).font("Times-Bold").text(domain);
-    doc.font("Times-Roman").text("Mode: ", 40, 405, { continued: true }).font("Times-Bold").text("Virtual");
-    doc.font("Times-Roman").text("Duration: ", 40, 425, { continued: true }).font("Times-Bold").text(durationLabel);
-    doc.font("Times-Roman").text("Start Date: ", 40, 445, { continued: true }).font("Times-Bold").text(startDateStr);
-    doc.font("Times-Roman").text("End Date: ", 40, 465, { continued: true }).font("Times-Bold").text(endDateStr);
+    const yDetailsList = doc.y + 8;
+    doc.font("Times-Roman").lineGap(4.5);
+    doc.text("Domain: ", 40, yDetailsList, { continued: true }).font("Times-Bold").text(domain);
+    doc.font("Times-Roman").text("Mode: ", 40, doc.y + 5, { continued: true }).font("Times-Bold").text("Virtual");
+    doc.font("Times-Roman").text("Duration: ", 40, doc.y + 5, { continued: true }).font("Times-Bold").text(durationLabel);
+    doc.font("Times-Roman").text("Start Date: ", 40, doc.y + 5, { continued: true }).font("Times-Bold").text(startDateStr);
+    doc.font("Times-Roman").text("End Date: ", 40, doc.y + 5, { continued: true }).font("Times-Bold").text(endDateStr);
 
     // Commitment and terms
-    doc.font("Times-Bold").text("Weekly Commitment: 5 hours per week", 40, 495);
+    const yCommitment = doc.y + 15;
+    doc.font("Times-Bold").text("Weekly Commitment: 5 hours per week", 40, yCommitment);
     
-    doc.font("Times-Roman").lineGap(6);
+    const yBody2 = doc.y + 15;
+    doc.font("Times-Roman").lineGap(4.2);
     const bodyText2 = `The internship will be conducted for ${durationLabel}, as selected during registration.To be eligible for the internship completion certificate, the intern must complete.\n\nthe assigned tasks, project work, and required submissions within the specified timeline.\n\nThisinternship is intended for learning and skill development purposes and does not create an employer-employee relationship with Jobify Technology & Services Private Limited.\n\nWe welcome you to the Jobify internship program and wish you a successful learning experience.`;
-    doc.text(bodyText2, 40, 525, { width: 515 });
+    doc.text(bodyText2, 40, yBody2, { width: 515 });
 
     // 7. Signature / Regards
-    doc.font("Times-Roman").fontSize(12.5).lineGap(4).text("Regards,", 40, 730);
-    doc.font("Times-Bold").fontSize(13).text("HR Jobify", 40, 750);
+    const yRegards = doc.y + 25;
+    doc.font("Times-Roman").fontSize(12.5).lineGap(3).text("Regards,", 40, yRegards);
+    doc.font("Times-Bold").fontSize(13).text("HR Jobify", 40, doc.y + 4);
 
     doc.end();
   });
