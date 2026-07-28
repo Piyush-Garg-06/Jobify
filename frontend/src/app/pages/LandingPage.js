@@ -403,9 +403,6 @@ function Domains() {
                 </span>
                 <p className="text-xs leading-relaxed" style={{ color: C.muted, fontFamily: "Inter, sans-serif" }}>{d.desc}</p>
               </div>
-              <div className="flex items-center gap-1 text-xs font-semibold mt-auto" style={{ color: C.blue, fontFamily: "Inter, sans-serif" }}>
-                View track <ArrowRight size={11} />
-              </div>
             </div>
           ))}
         </div>
