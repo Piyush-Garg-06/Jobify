@@ -450,31 +450,31 @@ export default function LMSPortal() {
   // ─── LOGIN VIEW ───
   if (!isLoggedIn) {
     return (
-      <div className="min-h-screen flex items-center justify-center relative px-4 py-12" style={{ background: G.navy, overflow: "hidden" }}>
+      <div className="min-h-screen flex items-center justify-center relative px-4 py-12" style={{ background: G.heroLight, overflow: "hidden" }}>
         {/* Decorative Grid and Spheres */}
-        <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] rounded-full opacity-20 blur-3xl pointer-events-none" style={{ background: C.blue }} />
-        <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] rounded-full opacity-20 blur-3xl pointer-events-none" style={{ background: C.orange }} />
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "radial-gradient(circle,#fff 1px,transparent 1px)", backgroundSize: "32px 32px" }} />
+        <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] rounded-full opacity-15 blur-3xl pointer-events-none" style={{ background: C.blue }} />
+        <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] rounded-full opacity-15 blur-3xl pointer-events-none" style={{ background: C.orange }} />
+        <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: "radial-gradient(circle,#000 1px,transparent 1px)", backgroundSize: "32px 32px" }} />
 
         <div className="w-full max-w-md relative z-10 flex flex-col gap-6">
-          {/* Logo in a clean, elevated white container to prevent merging with dark background */}
+          {/* Logo container */}
           <div className="flex justify-center">
-            <div className="bg-white/95 px-5 py-2.5 rounded-2xl shadow-xl border border-white/20 flex items-center justify-center">
+            <div className="bg-white px-5 py-2.5 rounded-2xl shadow-md border border-slate-100 flex items-center justify-center">
               <img src={logoImg} alt="Jobify" className="h-16 sm:h-20 w-auto object-contain" />
             </div>
           </div>
 
-          {/* Glassmorphic Login Card */}
-          <div className="p-8 rounded-3xl border border-white/10 backdrop-blur-xl shadow-2xl" style={{ background: "rgba(255, 255, 255, 0.04)" }}>
+          {/* Elevated Light Login Card */}
+          <div className="p-8 rounded-3xl border shadow-xl bg-white" style={{ borderColor: C.border }}>
             <div className="text-center mb-6">
-              <h2 className="text-2xl font-extrabold text-white" style={{ fontFamily: "Outfit, sans-serif" }}>LMS Student Portal</h2>
-              <p className="text-sm mt-1.5" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "Inter, sans-serif" }}>
+              <h2 className="text-2xl font-extrabold" style={{ fontFamily: "Outfit, sans-serif", color: C.navy }}>LMS Student Portal</h2>
+              <p className="text-sm mt-1.5" style={{ color: C.muted, fontFamily: "Inter, sans-serif" }}>
                 Login to access your weekly projects & certificates.
               </p>
             </div>
 
             {loginError && (
-              <div className="flex items-center gap-2.5 p-3.5 mb-5 rounded-xl border text-sm text-red-300" style={{ background: "rgba(239, 68, 68, 0.15)", borderColor: "rgba(239, 68, 68, 0.3)" }}>
+              <div className="flex items-center gap-2.5 p-3.5 mb-5 rounded-xl border text-sm text-red-700 bg-red-50" style={{ borderColor: "rgba(239, 68, 68, 0.2)" }}>
                 <ShieldAlert size={16} className="shrink-0" />
                 {loginError}
               </div>
@@ -482,36 +482,36 @@ export default function LMSPortal() {
 
             <form onSubmit={handleLogin} className="flex flex-col gap-4">
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-bold uppercase tracking-wider text-slate-300">Username / Login ID</label>
+                <label className="text-xs font-bold uppercase tracking-wider" style={{ color: C.navy, opacity: 0.8 }}>Username / Login ID</label>
                 <input
                   type="text"
                   placeholder="Enter your username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   required
-                  className="px-4 py-3 rounded-xl border border-white/10 text-white placeholder-slate-500 text-sm outline-none focus:border-blue-400 transition"
-                  style={{ background: "rgba(255,255,255,0.06)" }}
+                  className="px-4 py-3 rounded-xl border text-slate-800 placeholder-slate-400 text-sm outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition"
+                  style={{ background: C.white, borderColor: C.borderDark }}
                 />
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-bold uppercase tracking-wider text-slate-300">Password</label>
+                <label className="text-xs font-bold uppercase tracking-wider" style={{ color: C.navy, opacity: 0.8 }}>Password</label>
                 <input
                   type="password"
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="px-4 py-3 rounded-xl border border-white/10 text-white placeholder-slate-500 text-sm outline-none focus:border-blue-400 transition"
-                  style={{ background: "rgba(255,255,255,0.06)" }}
+                  className="px-4 py-3 rounded-xl border text-slate-800 placeholder-slate-400 text-sm outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition"
+                  style={{ background: C.white, borderColor: C.borderDark }}
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full py-3.5 mt-2 rounded-xl font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 shadow-lg flex items-center justify-center gap-2"
-                style={{ background: G.orange, color: C.navyDark, fontFamily: "Outfit, sans-serif" }}
+                className="w-full py-3.5 mt-2 rounded-xl font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 shadow-md flex items-center justify-center gap-2"
+                style={{ background: G.orange, color: C.navy, fontFamily: "Outfit, sans-serif" }}
               >
                 {isLoading ? <Loader2 size={16} className="animate-spin" /> : <>Login <ArrowRight size={16} /></>}
               </button>
